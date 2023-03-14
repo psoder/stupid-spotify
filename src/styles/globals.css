@@ -18,3 +18,9 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+@layer components {
+    .button {
+        @apply rounded bg-white p-2 text-black;
+    }
+}

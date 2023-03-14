@@ -1,6 +1,30 @@
+import { useSession } from "next-auth/react";
 import Head from "next/head";
+import queryString from "query-string";
+import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
+    const [spotifyData, setSpotifyData] = useState(null);
+    const { data: session } = useSession();
+    const [searchKey, setSearchKey] = useState("");
+
+    const searchArtists = async (e) => {
+        e.preventDefault();
+
+        fetch(
+            queryString.stringifyUrl({
+                url: "https://api.spotify.com/v1/search",
+                query: { q: searchKey, type: "artist" }
+            }),
+            { headers: { Authorization: `Bearer ${session?.user.accessToken}` } }
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                setSpotifyData(data);
+            })
+            .catch((err) => console.error(err));
+    };
+
     return (
         <>
             <Head>
@@ -9,9 +33,19 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <h1 className="p-5 text-4xl font-bold">Stupid Spotify</h1>
+            <main className="p-5">
+                <h2 className="text-2xl">Search artist</h2>
+                <form onSubmit={searchArtists}>
+                    <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
+                    <button className="button" type={"submit"}>
+                        Search
+                    </button>
+                </form>{" "}
+                <h2 className="text-2xl">Result</h2>
+                {spotifyData && <pre>{JSON.stringify(spotifyData, null, 2)}</pre>}
             </main>
         </>
     );
-}
+};
+
+export default Home;
