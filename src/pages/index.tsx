@@ -1,28 +1,23 @@
-import { useSession } from "next-auth/react";
+import useSpotifyClient from "@/hooks/useSpotifyClient";
 import Head from "next/head";
-import queryString from "query-string";
 import { useState } from "react";
+import { Artist } from "spotify-api.js";
 
 const Home = () => {
-    const [spotifyData, setSpotifyData] = useState(null);
-    const { data: session } = useSession();
+    const { spotifyClient } = useSpotifyClient();
+
+    const [spotifyData, setSpotifyData] = useState<Artist[]>([]);
     const [searchKey, setSearchKey] = useState("");
 
-    const searchArtists = async (e) => {
+    const searchArtists = async (e: any) => {
         e.preventDefault();
 
-        fetch(
-            queryString.stringifyUrl({
-                url: "https://api.spotify.com/v1/search",
-                query: { q: searchKey, type: "artist" }
-            }),
-            { headers: { Authorization: `Bearer ${session?.user.accessToken}` } }
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                setSpotifyData(data);
-            })
-            .catch((err) => console.error(err));
+        try {
+            const data = await spotifyClient?.search(searchKey, { types: ["artist"] });
+            setSpotifyData(data?.artists ?? []);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
