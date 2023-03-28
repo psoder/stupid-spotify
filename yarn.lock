@@ -330,6 +330,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/spotify-web-playback-sdk@npm:^0.1.12":
+  version: 0.1.15
+  resolution: "@types/spotify-web-playback-sdk@npm:0.1.15"
+  checksum: 0612a50da15e226b0f1814e6ece48cb9c514aa1303b83b353241f702ff5742aa21b88225ec6120c368f5582cdadbc87c3fbd04eabf95cc4c4a0500ac8ec83baf
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:^5.54.1":
   version: 5.54.1
   resolution: "@typescript-eslint/eslint-plugin@npm:5.54.1"
@@ -3465,10 +3472,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "react-icons@npm:4.8.0"
+  peerDependencies:
+    react: "*"
+  checksum: 4dbba7ad989c295b410e19b2a702722dae44368cb04b6515f9471353552f31ac80bd350f121d5bff79f81504b84039ede44d09e9f035f48bb1032e6eace126c4
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-spotify-web-playback-sdk@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "react-spotify-web-playback-sdk@npm:3.0.1"
+  dependencies:
+    "@types/spotify-web-playback-sdk": ^0.1.12
+  peerDependencies:
+    react: ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 3abc1578f8cbb04c46b461956f7c1fe9ad170410c4bf7fbb47de2ec72fed25e3e54e0ac385b9371389253db3b9559549b8354c32bafb2a0d8cc95c12023af023
   languageName: node
   linkType: hard
 
@@ -3917,6 +3947,8 @@ __metadata:
     query-string: ^8.1.0
     react: 18.2.0
     react-dom: 18.2.0
+    react-icons: ^4.8.0
+    react-spotify-web-playback-sdk: ^3.0.1
     spotify-api.js: latest
     swr: ^2.1.0
     tailwindcss: ^3.2.7

@@ -46,6 +46,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:18.2.0"],\
+            ["react-icons", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:4.8.0"],\
+            ["react-spotify-web-playback-sdk", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.0.1"],\
             ["spotify-api.js", "npm:9.2.5"],\
             ["swr", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:2.1.0"],\
             ["tailwindcss", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.2.7"],\
@@ -443,6 +445,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-semver-npm-7.3.13-56212b60da-00c0724d54.zip/node_modules/@types/semver/",\
           "packageDependencies": [\
             ["@types/semver", "npm:7.3.13"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/spotify-web-playback-sdk", [\
+        ["npm:0.1.15", {\
+          "packageLocation": "./.yarn/cache/@types-spotify-web-playback-sdk-npm-0.1.15-35199e149c-0612a50da1.zip/node_modules/@types/spotify-web-playback-sdk/",\
+          "packageDependencies": [\
+            ["@types/spotify-web-playback-sdk", "npm:0.1.15"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4318,11 +4329,56 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-icons", [\
+        ["npm:4.8.0", {\
+          "packageLocation": "./.yarn/cache/react-icons-npm-4.8.0-aa5423cd6c-4dbba7ad98.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "npm:4.8.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:4.8.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-d07532833d/0/cache/react-icons-npm-4.8.0-aa5423cd6c-4dbba7ad98.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:4.8.0"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
           "packageDependencies": [\
             ["react-is", "npm:16.13.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-spotify-web-playback-sdk", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/react-spotify-web-playback-sdk-npm-3.0.1-d4230369fb-3abc1578f8.zip/node_modules/react-spotify-web-playback-sdk/",\
+          "packageDependencies": [\
+            ["react-spotify-web-playback-sdk", "npm:3.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-spotify-web-playback-sdk-virtual-4a7351d9b3/0/cache/react-spotify-web-playback-sdk-npm-3.0.1-d4230369fb-3abc1578f8.zip/node_modules/react-spotify-web-playback-sdk/",\
+          "packageDependencies": [\
+            ["react-spotify-web-playback-sdk", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.0.1"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["@types/spotify-web-playback-sdk", "npm:0.1.15"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4784,6 +4840,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:18.2.0"],\
+            ["react-icons", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:4.8.0"],\
+            ["react-spotify-web-playback-sdk", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.0.1"],\
             ["spotify-api.js", "npm:9.2.5"],\
             ["swr", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:2.1.0"],\
             ["tailwindcss", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.2.7"],\
