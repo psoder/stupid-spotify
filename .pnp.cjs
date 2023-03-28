@@ -46,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:18.2.0"],\
+            ["react-toastify", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:9.1.2"],\
             ["spotify-api.js", "npm:9.2.5"],\
             ["swr", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:2.1.0"],\
             ["tailwindcss", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.2.7"],\
@@ -1174,6 +1175,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/client-only-npm-0.0.1-07d3e9505c-0c16bf660d.zip/node_modules/client-only/",\
           "packageDependencies": [\
             ["client-only", "npm:0.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["clsx", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/clsx-npm-1.2.1-77792dc182-30befca801.zip/node_modules/clsx/",\
+          "packageDependencies": [\
+            ["clsx", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4327,6 +4337,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-toastify", [\
+        ["npm:9.1.2", {\
+          "packageLocation": "./.yarn/cache/react-toastify-npm-9.1.2-b3ba16a74b-0b21851bbb.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "npm:9.1.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:9.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-abd016ac97/0/cache/react-toastify-npm-9.1.2-b3ba16a74b-0b21851bbb.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:9.1.2"],\
+            ["@types/react", "npm:18.0.28"],\
+            ["@types/react-dom", "npm:18.0.11"],\
+            ["clsx", "npm:1.2.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["read-cache", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/read-cache-npm-1.0.0-00fa89ed05-cffc728b9e.zip/node_modules/read-cache/",\
@@ -4784,6 +4821,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:18.2.0"],\
+            ["react-toastify", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:9.1.2"],\
             ["spotify-api.js", "npm:9.2.5"],\
             ["swr", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:2.1.0"],\
             ["tailwindcss", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:3.2.7"],\
