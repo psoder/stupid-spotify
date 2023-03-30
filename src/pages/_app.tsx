@@ -1,7 +1,6 @@
 import Footer from "@/modules/footer";
 import Header from "@/modules/header";
 import Player from "@/modules/player/Players";
-import SpotifyPlayer from "@/modules/player/SpotifyPlayer";
 import { SpotifyClientProvider } from "@/SpotifyClientContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -20,7 +19,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
                     <Header />
                     <div className="flex-grow">
                         <Component {...pageProps} />
-                        <SpotifyPlayer />
                     </div>
                     <Footer />
                     <Player />

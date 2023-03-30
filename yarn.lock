@@ -330,7 +330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/spotify-web-playback-sdk@npm:^0.1.12":
+"@types/spotify-web-playback-sdk@npm:^0.1.12, @types/spotify-web-playback-sdk@npm:^0.1.15":
   version: 0.1.15
   resolution: "@types/spotify-web-playback-sdk@npm:0.1.15"
   checksum: 0612a50da15e226b0f1814e6ece48cb9c514aa1303b83b353241f702ff5742aa21b88225ec6120c368f5582cdadbc87c3fbd04eabf95cc4c4a0500ac8ec83baf
@@ -3932,6 +3932,7 @@ __metadata:
     "@types/node": 18.14.6
     "@types/react": 18.0.28
     "@types/react-dom": 18.0.11
+    "@types/spotify-web-playback-sdk": ^0.1.15
     "@typescript-eslint/eslint-plugin": ^5.54.1
     "@typescript-eslint/parser": ^5.54.1
     autoprefixer: ^10.4.14

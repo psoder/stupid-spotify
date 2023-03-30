@@ -23,4 +23,12 @@ a {
     .button {
         @apply rounded bg-white p-2 text-black;
     }
+
+    .hide-long-text {
+        @apply max-w-[25ch] overflow-hidden text-ellipsis whitespace-nowrap;
+    }
+
+    .player-controller-icon {
+        @apply text-gray-400 hover:text-white;
+    }
 }

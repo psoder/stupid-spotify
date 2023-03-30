@@ -1,27 +1,36 @@
 import { formatTime } from "@/util";
-import Image from "next/image";
-import type { Track } from "spotify-api.js";
+import { getSession } from "next-auth/react";
+import type { Track as TrackType } from "spotify-api.js";
+import Track from "../Track";
 
-const TrackListRow = ({ track }: { track: Track }) => {
+const TrackListRow = ({ track }: { track: TrackType }) => {
+    const handleClick = async () => {
+        const accessToken = (await getSession())?.user.accessToken;
+
+        fetch(`https://api.spotify.com/v1/me/player/queue?uri=${track.uri}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`
+            }
+        });
+    };
+
     return (
         <div
             className="grid grid-cols-track-list items-center gap-4 rounded bg-black p-2
         text-white shadow-sm shadow-black hover:bg-white hover:text-black"
         >
-            <Image
-                src={track.album?.images[0].url ?? "/placeholder.png"}
-                alt="album image"
-                height={48}
-                width={48}
+            <Track
+                name={track.name}
+                artists={track.artists.map((artist) => artist.name)}
+                imageUrl={track.album?.images[0].url}
             />
-            <div>
-                <p className="font-semibold">{track.name}</p>
-                <p className="font-light">
-                    {track.artists.map((artist) => artist.name).join(", ")}
-                </p>
-            </div>
             <p>{track.album?.name}</p>
             <p>{formatTime(track.duration)}</p>
+            <button className="hover:font-bold" onClick={handleClick}>
+                Add to queue
+            </button>
         </div>
     );
 };

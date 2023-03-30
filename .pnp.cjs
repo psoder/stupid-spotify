@@ -31,6 +31,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
+            ["@types/spotify-web-playback-sdk", "npm:0.1.15"],\
             ["@typescript-eslint/eslint-plugin", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:5.54.1"],\
             ["@typescript-eslint/parser", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:5.54.1"],\
             ["autoprefixer", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:10.4.14"],\
@@ -4825,6 +4826,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
+            ["@types/spotify-web-playback-sdk", "npm:0.1.15"],\
             ["@typescript-eslint/eslint-plugin", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:5.54.1"],\
             ["@typescript-eslint/parser", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:5.54.1"],\
             ["autoprefixer", "virtual:382332c3c00fdea80db117430fc904196fcfd69dfb538102fa2b79c2743798f7f85288bbfc35dd75d097082011ae0dbe5f783ee4c85a6627ce85697cb90120a6#npm:10.4.14"],\
