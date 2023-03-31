@@ -8,6 +8,12 @@ const nextConfig = {
                 hostname: "i.scdn.co",
                 port: "",
                 pathname: "/image/**"
+            },
+            {
+                protocol: "https",
+                hostname: "scontent-ams4-1.xx.fbcdn.net",
+                port: "",
+                pathname: "/**"
             }
         ]
     }
