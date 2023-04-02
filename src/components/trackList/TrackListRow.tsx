@@ -5,7 +5,7 @@ import Track from "../Track";
 
 const TrackListRow = ({ track }: { track: TrackType }) => {
     const handleClick = async () => {
-        const accessToken = (await getSession())?.user.accessToken;
+        const accessToken = (await getSession())?.accessToken;
 
         fetch(`https://api.spotify.com/v1/me/player/queue?uri=${track.uri}`, {
             method: "POST",

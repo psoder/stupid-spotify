@@ -6,7 +6,7 @@ import PlayerContent from "./PlayerContent";
 export const Player = () => {
     // eslint-disable-next-line no-unused-vars
     const getOAuthToken = useCallback(async (cb: (token: string) => void) => {
-        const token = (await getSession())?.user.accessToken;
+        const token = (await getSession())?.accessToken;
         cb(token ?? "");
     }, []);
 

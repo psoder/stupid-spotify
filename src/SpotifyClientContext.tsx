@@ -15,11 +15,11 @@ const SpotifyClientProvider = ({ children }: { children: ReactNode }) => {
         async function createClient() {
             const session = await getSession();
 
-            if (!session?.user.accessToken) {
+            if (!session?.accessToken) {
                 return;
             }
 
-            const c = new Client({ token: session?.user.accessToken ?? "" });
+            const c = new Client({ token: session?.accessToken ?? "" });
             setSpotifyClient(c);
         }
 
