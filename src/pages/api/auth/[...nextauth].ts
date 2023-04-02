@@ -40,7 +40,7 @@ async function refreshAccessToken(token: JWT) {
 
         return {
             ...token,
-            error: "RefreshAccessTokenError"
+            error: `RefreshAccessTokenError`
         };
     }
 }
@@ -62,12 +62,18 @@ export const authOptions: AuthOptions = {
     ],
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async jwt({ token, user, account }) {
+        jwt({ token, user, account }) {
             if (account && user) {
+                if (account.access_token! || account.expires_at! || account.refresh_token) {
+                    console.error("No access token provided.");
+                    throw account;
+                }
+
                 return {
-                    accessToken: account.access_token,
-                    accessTokenExpires: account.expires_at,
-                    refreshToken: account.refresh_token,
+                    accessToken: account.access_token!,
+                    accessTokenExpires: account.expires_at!,
+                    refreshToken: account.refresh_token!,
+                    id: user.id,
                     user
                 };
             }
