@@ -2,7 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { TbLogout } from "react-icons/tb";
 
-const Profile = () => {
+const UserProfile = () => {
     const { data: session, status } = useSession();
 
     return (
@@ -30,4 +30,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default UserProfile;
