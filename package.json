@@ -22,11 +22,11 @@
     "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-toastify": "^9.1.2",
+    "react-icons": "^4.8.0",
+    "react-toastify": "latest",
     "spotify-api.js": "latest",
     "swr": "^2.1.0",
-    "typescript": "4.9.5",
-    "react-toastify": "latest"
+    "typescript": "4.9.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.1",
