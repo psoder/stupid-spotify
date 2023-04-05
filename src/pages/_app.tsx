@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { Player } from "@/modules/player";
 import { SpotifyClientProvider } from "@/SpotifyClientContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
                     <div className="flex-grow">
                         <Component {...pageProps} />
                     </div>
+                    <Player />
                     <ToastContainer
                         position="top-right"
                         autoClose={5000}
