@@ -6,7 +6,7 @@ const UserProfile = () => {
     const { data: session, status } = useSession();
 
     return (
-        <div className="flex min-w-[150px] items-center justify-center gap-2 rounded-full bg-black px-3 py-1 shadow-md shadow-black">
+        <div className="flex min-w-[150px] items-center justify-center gap-2 rounded-full bg-black px-3 py-1 shadow-sm shadow-black">
             {status === "authenticated" ? (
                 <>
                     <Image
@@ -16,9 +16,9 @@ const UserProfile = () => {
                         height={24}
                         width={24}
                     />
-                    {session?.user.name}
+                    <p className="text-base font-medium text-white">{session?.user.name}</p>
                     <button onClick={() => signOut()}>
-                        <TbLogout />
+                        <TbLogout size={20} />
                     </button>
                 </>
             ) : (
