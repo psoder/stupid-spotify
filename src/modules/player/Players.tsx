@@ -1,15 +1,20 @@
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { useCallback } from "react";
 import { WebPlaybackSDK } from "react-spotify-web-playback-sdk";
 import PlayerContent from "./PlayerContent";
 
 export const Player = () => {
+    const { status } = useSession();
+
     // eslint-disable-next-line no-unused-vars
     const getOAuthToken = useCallback(async (cb: (token: string) => void) => {
         const token = (await getSession())?.accessToken;
         cb(token ?? "");
     }, []);
 
+    if (status !== "authenticated") {
+        return;
+    }
     return (
         // @ts-expect-error: Something strange is wrong.
         <WebPlaybackSDK
