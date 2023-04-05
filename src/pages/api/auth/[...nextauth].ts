@@ -64,7 +64,7 @@ export const authOptions: AuthOptions = {
     callbacks: {
         jwt({ token, user, account }) {
             if (account && user) {
-                if (account.access_token! || account.expires_at! || account.refresh_token) {
+                if (!account.access_token! || !account.expires_at! || !account.refresh_token) {
                     console.error("No access token provided.");
                     throw account;
                 }

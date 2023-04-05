@@ -18,7 +18,7 @@ export const Player = () => {
             connectOnInitialized={true}
             initialVolume={0.5}
         >
-            <div className="fixed left-0 right-0 bottom-3 mx-auto max-w-2xl">
+            <div className="fixed bottom-3 left-0 right-0 mx-auto max-w-2xl">
                 <div className="bg-black px-5 py-3 text-white shadow-lg shadow-slate-900">
                     <PlayerContent />
                 </div>
