@@ -21,13 +21,13 @@ const Profile = () => {
     return (
         <div className="flex items-center gap-2">
             <Image
-                src={session?.user.image ?? ""}
+                src={session?.user?.image ?? ""}
                 className="rounded-full"
                 alt="profile picture"
                 height={48}
                 width={48}
             />
-            {session?.user.name}
+            {session?.user?.name}
             <button className="button" onClick={() => signOut()}>
                 Sign out
             </button>
