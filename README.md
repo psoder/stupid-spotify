@@ -3,7 +3,31 @@
 This is the final project for the course [DH2642 Interaction Programming and the Dynamic Web](https://www.kth.se/student/kurser/kurs/DH2642?l=en)
 given at KTH during the spring of 2023.
 
-## Running
+## Getting started
+
+There are a couple of steps in order to run the software:
+
+### Environment variables
+
+To get the application working correctly make a copy of [`.env.example`](./.env.example)
+called `.env` and fill out the fields.
+
+| Variable                | Default                 | Purpose                                                                                          |
+| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| `NEXTAUTH_URL`          | `http://localhost:3000` | URL of the host                                                                                  |
+| `NEXTAUTH_SECRET`       |                         | See the NextAuth [documentation](https://next-auth.js.org/configuration/options#nextauth_secret) |
+| `SPOTIFY_CLIENT_ID`     |                         | Id of the Spotify application                                                                    |
+| `SPOTIFY_CLIENT_SECRET` |                         | Spotify application access key                                                                   |
+
+### Installation
+
+In order to proceed with the rest of the project you first have to run:
+
+```bash
+yarn
+```
+
+### Running
 
 To run the development server:
 
@@ -11,7 +35,7 @@ To run the development server:
 yarn dev
 ```
 
-## Getting started
+## TechStack
 
 ### NextJS
 
@@ -54,15 +78,3 @@ In order for users to make requests to the Spotify API they have to be authentic
 This is done using [NextAuth](https://next-auth.js.org/).
 
 More information and documentation can be found [here](https://next-auth.js.org/getting-started/introduction).
-
-### Environment variables
-
-To get the application working correctly make a copy of [`.env.example`](./.env.example)
-called `.env` and fill out the fields.
-
-| Variable                | Default                 | Purpose                                                                                          |
-| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| `NEXTAUTH_URL`          | `http://localhost:3000` | URL of the host                                                                                  |
-| `NEXTAUTH_SECRET`       |                         | See the NextAuth [documentation](https://next-auth.js.org/configuration/options#nextauth_secret) |
-| `SPOTIFY_CLIENT_ID`     |                         | Id of the Spotify application                                                                    |
-| `SPOTIFY_CLIENT_SECRET` |                         | Spotify application access key                                                                   |
