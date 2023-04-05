@@ -1,20 +1,20 @@
+import TrackList from "@/components/trackList/TrackList";
 import useSpotifyClient from "@/hooks/useSpotifyClient";
 import Head from "next/head";
 import { useState } from "react";
-import { Artist } from "spotify-api.js";
+import type { Track } from "spotify-api.js";
 
 const Home = () => {
     const { spotifyClient } = useSpotifyClient();
 
-    const [spotifyData, setSpotifyData] = useState<Artist[]>([]);
+    const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
     const [searchKey, setSearchKey] = useState("");
 
-    const searchArtists = async (e: any) => {
+    const searchTracks = async (e: any) => {
         e.preventDefault();
-
         try {
-            const data = await spotifyClient?.search(searchKey, { types: ["artist"] });
-            setSpotifyData(data?.artists ?? []);
+            const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });
+            setSpotifyData({ ...spotifyData, tracks: res?.tracks });
         } catch (error) {
             console.error(error);
         }
@@ -28,16 +28,15 @@ const Home = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className="p-5">
+            <main className="flex flex-col items-center p-5">
                 <h2 className="text-2xl">Search artist</h2>
-                <form onSubmit={searchArtists}>
+                <form onSubmit={searchTracks}>
                     <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
                     <button className="button" type={"submit"}>
                         Search
                     </button>
-                </form>{" "}
-                <h2 className="text-2xl">Result</h2>
-                {spotifyData && <pre>{JSON.stringify(spotifyData, null, 2)}</pre>}
+                </form>
+                <TrackList tracks={spotifyData.tracks ?? []} />
             </main>
         </>
     );
