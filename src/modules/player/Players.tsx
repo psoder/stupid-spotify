@@ -15,6 +15,7 @@ export const Player = () => {
     if (status !== "authenticated") {
         return;
     }
+
     return (
         // @ts-expect-error: Something strange is wrong.
         <WebPlaybackSDK

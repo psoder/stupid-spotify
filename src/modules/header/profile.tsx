@@ -13,7 +13,10 @@ const Profile = () => {
     } else if (status === "loading") {
         return <>Loading...</>;
     }
-
+    if (!session) {
+        return;
+    }
+    console.log(session?.user);
     return (
         <div className="flex items-center gap-2">
             <Image

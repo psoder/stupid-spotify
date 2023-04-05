@@ -21,7 +21,7 @@ const PlayerContent = () => {
         if (playerDevice?.device_id === undefined) return;
 
         const transferPlayback = async () => {
-            const accessToken = (await getSession())?.accessToken;
+            const accessToken = (await getSession())?.user.accessToken;
 
             // https://developer.spotify.com/documentation/web-api/reference/#endpoint-transfer-a-users-playback
             await fetch(`https://api.spotify.com/v1/me/player`, {
