@@ -14,6 +14,10 @@ const Profile = () => {
         return <>Loading...</>;
     }
 
+    if (!session) {
+        return;
+    }
+
     return (
         <div className="flex items-center gap-2">
             <Image
