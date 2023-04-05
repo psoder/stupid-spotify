@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { SpotifyClientProvider } from "@/SpotifyClientContext";
 import "@/styles/globals.css";
@@ -21,7 +20,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
                     <div className="flex-grow">
                         <Component {...pageProps} />
                     </div>
-                    <Footer />
                     <ToastContainer
                         position="top-right"
                         autoClose={5000}
