@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             gridTemplateColumns: {
-                "track-list": "auto 1fr 1fr  100px"
+                "track-list": "1fr 1fr 50px 100px"
             },
             colors: {
                 transparent: "transparent",

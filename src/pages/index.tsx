@@ -13,7 +13,6 @@ const Home = () => {
 
     const searchTracks = async (e: any) => {
         e.preventDefault();
-
         try {
             const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });
             setSpotifyData({ ...spotifyData, tracks: res?.tracks });
@@ -58,7 +57,6 @@ const Home = () => {
                         Search
                     </button>
                 </form>
-
                 <TrackList tracks={spotifyData.tracks ?? []} />
             </main>
         </>

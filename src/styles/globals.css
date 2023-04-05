@@ -28,4 +28,12 @@ a {
     .active-page {
         @apply font-bold text-primary;
     }
+
+    .hide-long-text {
+        @apply max-w-[25ch] overflow-hidden text-ellipsis whitespace-nowrap;
+    }
+
+    .player-controller-icon {
+        @apply text-gray-400 hover:text-white;
+    }
 }

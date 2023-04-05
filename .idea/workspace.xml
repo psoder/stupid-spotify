@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fee58df9-e0cf-456a-bc35-72db44ba25d4" name="Changes" comment="" />
+    <list default="true" id="5ff3267d-1fe8-4ed5-9313-7153ba967474" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +16,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2NmPrqfzPfklwVGcmRZditcFmLJ" />
+  <component name="ProjectId" id="2O0ElFJv8im2pft8L7H6DNRBcKA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,22 +27,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/david_puustinen/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8836.50/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fee58df9-e0cf-456a-bc35-72db44ba25d4" name="Changes" comment="" />
-      <created>1680266485487</created>
+      <changelist id="5ff3267d-1fe8-4ed5-9313-7153ba967474" name="Changes" comment="" />
+      <created>1680689248769</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1680266485487</updated>
-      <workItem from="1680266486798" duration="1911000" />
+      <updated>1680689248769</updated>
+      <workItem from="1680689252435" duration="4798000" />
     </task>
     <servers />
   </component>
