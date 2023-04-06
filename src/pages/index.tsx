@@ -35,6 +35,7 @@ const Home = () => {
     const [artistData, setartistData] = useState<{ artists?: Artist[] }>({});
     const [searchKey, setSearchKey] = useState("");
     const searchTracks = async (e: any) => {
+        //still some work do do // Oskar
         e.preventDefault();
         try {
             const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });

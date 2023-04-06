@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Artist } from "spotify-api.js";
 
 const TrackListRow = ({ artist }: { artist: Artist }) => {
+    //still some work do do // Oskar
     //Note complete yet!
     return (
         <div
