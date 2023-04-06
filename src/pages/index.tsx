@@ -1,44 +1,55 @@
 import TrackList from "@/components/trackList/TrackList";
+import ArtistList from "@/components/trackList/ArtistList"; //might have to change location later
 import useSpotifyClient from "@/hooks/useSpotifyClient";
 import Head from "next/head";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
-
+import type { Artist } from "spotify-api.js";
 const Home = () => {
+    const errorHandler = (e: any) => {
+        let message = `Something went wrong. See the console for more information.`;
+
+        if (e instanceof Error) {
+            const { error } = JSON.parse(e.message);
+
+            if (error.message) {
+                message = `${error.message}.`;
+            }
+
+            switch (error.status) {
+                case 400:
+                    message = `${message} Please search for something.`;
+                    break;
+                case 401:
+                    message = `${message} Please try signing out and in.`;
+                    break;
+            }
+        }
+
+        console.error(e);
+        toast.error(message);
+    };
     const { spotifyClient } = useSpotifyClient();
-
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
+    const [artistData, setartistData] = useState<{ artists?: Artist[] }>({});
     const [searchKey, setSearchKey] = useState("");
-
     const searchTracks = async (e: any) => {
         e.preventDefault();
-
         try {
             const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });
             setSpotifyData({ ...spotifyData, tracks: res?.tracks });
         } catch (e) {
-            let message = `Something went wrong. See the console for more information.`;
-
-            if (e instanceof Error) {
-                const { error } = JSON.parse(e.message);
-
-                if (error.message) {
-                    message = `${error.message}.`;
-                }
-
-                switch (error.status) {
-                    case 400:
-                        message = `${message} Please search for something.`;
-                        break;
-                    case 401:
-                        message = `${message} Please try signing out and in.`;
-                        break;
-                }
-            }
-
-            console.error(e);
-            toast.error(message);
+            errorHandler(e);
+        }
+    };
+    const searchArtists = async (e: any) => {
+        e.preventDefault();
+        try {
+            const res = await spotifyClient?.search(searchKey ?? "", { types: ["artist"] });
+            setartistData({ ...artistData, artists: res?.artists });
+        } catch (e) {
+            errorHandler(e);
         }
     };
 
@@ -58,7 +69,24 @@ const Home = () => {
                         Search
                     </button>
                 </form>
+                <button
+                    onClick={() => {
+                        setSpotifyData({});
+                        setartistData({});
+                    }}
+                    className="button"
+                    type={"submit"}
+                >
+                    clean search result
+                </button>
 
+                <form onSubmit={searchArtists}>
+                    <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
+                    <button className="button" type={"submit"}>
+                        Search
+                    </button>
+                </form>
+                <ArtistList artists={artistData.artists ?? []} />
                 <TrackList tracks={spotifyData.tracks ?? []} />
             </main>
         </>
