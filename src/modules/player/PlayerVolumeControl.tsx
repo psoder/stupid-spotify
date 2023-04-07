@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TbVolume, TbVolume2, TbVolumeOff } from "react-icons/tb";
+import { TbVolume, TbVolume2, TbVolume3 } from "react-icons/tb";
 import { useSpotifyPlayer } from "react-spotify-web-playback-sdk";
 
 const PlayerVolumeControl = () => {
@@ -19,7 +19,7 @@ const PlayerVolumeControl = () => {
 
     let volumeIcon;
     if (volume === 0 || muted) {
-        volumeIcon = <TbVolumeOff size={20} />;
+        volumeIcon = <TbVolume3 size={20} />;
     } else if (volume < 50) {
         volumeIcon = <TbVolume2 size={20} />;
     } else {
