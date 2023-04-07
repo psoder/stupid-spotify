@@ -13,7 +13,7 @@ module.exports = {
                 black: "#191414",
                 "grayed-out": "#555555",
                 white: {
-                    neutral: "#DDDDDD",
+                    neutral: "#CCCCCC",
                     active: "#FFFFFF"
                 }
             }

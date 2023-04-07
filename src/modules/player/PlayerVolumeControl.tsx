@@ -27,7 +27,7 @@ const PlayerVolumeControl = () => {
     }
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex min-w-[120px] items-center gap-2">
             <button className="hover:text-white-active" onClick={() => setMuted(!muted)}>
                 {volumeIcon}
             </button>
@@ -40,12 +40,12 @@ const PlayerVolumeControl = () => {
                     setMuted(false);
                     setVolume(+evt.target.value);
                 }}
-                className="h-1 w-full cursor-pointer appearance-none rounded-full"
+                onMouseOver={() => setSliderColor("var(--primary)")}
+                onMouseOut={() => setSliderColor("var(--white-neutral)")}
+                className="range-slider"
                 style={{
                     background: `linear-gradient(to right, ${sliderColor} ${volume}%, var(--grayed-out) ${volume}%)`
                 }}
-                onMouseOver={() => setSliderColor("var(--primary)")}
-                onMouseOut={() => setSliderColor("var(--white-neutral)")}
             />
         </div>
     );

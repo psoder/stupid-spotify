@@ -33,6 +33,10 @@ a {
         @apply font-bold text-primary;
     }
 
+    .range-slider {
+        @apply h-1 w-full cursor-pointer appearance-none rounded-full;
+    }
+
     .hide-long-text {
         @apply max-w-[25ch] overflow-hidden text-ellipsis whitespace-nowrap;
     }

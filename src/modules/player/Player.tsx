@@ -19,12 +19,12 @@ export const Player = () => {
     return (
         // @ts-expect-error: Something strange is wrong.
         <WebPlaybackSDK
-            initialDeviceName="Spotify Player on Next.js"
+            initialDeviceName="Stupid Spotify"
             getOAuthToken={getOAuthToken}
             connectOnInitialized={true}
             initialVolume={0.5}
         >
-            <div className="fixed bottom-3 left-0 right-0 mx-auto max-w-2xl">
+            <div className="fixed bottom-3 left-0 right-0 mx-auto w-fit">
                 <div className="bg-black px-5 py-3 text-white-neutral shadow-lg shadow-slate-900">
                     <PlayerContent />
                 </div>
