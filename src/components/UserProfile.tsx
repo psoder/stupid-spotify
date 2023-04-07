@@ -6,7 +6,7 @@ const UserProfile = () => {
     const { data: session, status } = useSession();
 
     return (
-        <div className="flex min-w-[150px] items-center justify-center gap-2 rounded-full bg-black px-3 py-1 text-white shadow-sm shadow-black">
+        <div className="flex min-w-[150px] items-center justify-center gap-2 rounded-full bg-black px-3 py-1 text-white-neutral shadow-sm shadow-black">
             {status === "authenticated" ? (
                 <>
                     <Image

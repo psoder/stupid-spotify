@@ -24,7 +24,7 @@ const PlayerControls = ({ disabled }: { disabled: boolean }) => {
             <button
                 onClick={handleClick}
                 disabled={disabled}
-                className="hover:text-white disabled:text-gray-600"
+                className="hover:text-white-neutral disabled:text-gray-600"
             >
                 {children}
             </button>
