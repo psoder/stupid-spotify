@@ -66,3 +66,35 @@ called `.env` and fill out the fields.
 | `NEXTAUTH_SECRET`       |                         | See the NextAuth [documentation](https://next-auth.js.org/configuration/options#nextauth_secret) |
 | `SPOTIFY_CLIENT_ID`     |                         | Id of the Spotify application                                                                    |
 | `SPOTIFY_CLIENT_SECRET` |                         | Spotify application access key                                                                   |
+
+## Running it on your own
+
+### Spotify
+
+In order to access Spotify's API you need to create an application in their
+[developer dashboard](https://developer.spotify.com/dashboard). After having
+created the app you get access to the client id and client secret that
+you can use to access the Spotify API. Put these in the `.env` and don't share them!
+
+You also need to add users that are allowedto sign in to the application. This
+can be done in the user management tab. Use the email that's linked to the persons
+Spotify account.
+
+### Authentication
+
+In order to be able to authenticate need to add a callback URI under `Redirect URIs`
+on the Spotify dashboard.
+
+The URI should be on the format `<protocol>://<hostname>:<port>/api/auth/callback/spotify`
+(_note:_ the port is optional).
+
+For local development the URI would be `http://localhost:3000/api/auth/callback/spotify`.
+
+### Deploying
+
+The recommended way to deploy is on [Vercel](https://vercel.com/solutions/nextjs).
+For more information on how to deploy see <https://nextjs.org/docs/deployment>.
+
+Make sure to add the correct redirect URI to the Spotify dashboard (see [above](#authentication)).
+
+_Note:_ When deploying on Vercel `NEXTAUTH_URL` can be omitted.
