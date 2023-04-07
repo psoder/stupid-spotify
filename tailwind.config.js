@@ -10,7 +10,8 @@ module.exports = {
                 transparent: "transparent",
                 current: "currentColor",
                 primary: "#1DB954",
-                black: "#191414"
+                black: "#191414",
+                "grayed-out": "#555555"
             }
         }
     },

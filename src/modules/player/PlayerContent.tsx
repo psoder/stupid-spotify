@@ -10,6 +10,7 @@ import {
     useWebPlaybackSDKReady
 } from "react-spotify-web-playback-sdk";
 import PlayerControls from "./PlayerControls";
+import PlayerVolumeControl from "./PlayerVolumeControl";
 
 const PlayerContent = () => {
     const playbackState = usePlaybackState(true, 500);
@@ -61,6 +62,7 @@ const PlayerContent = () => {
             <div className="flex flex-grow flex-col gap-1">
                 <PlayerControls disabled={playbackState ? false : true} />
                 <TrackProgessBar />
+                <PlayerVolumeControl />
             </div>
         </div>
     );
