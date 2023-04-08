@@ -57,6 +57,7 @@ const Home = () => {
                     </button>
                 </form>
                 <TrackList tracks={spotifyData.tracks ?? []} />
+                {spotifyClient? <Playlist spotifyClient = {spotifyClient}/> : null}
             </main>
         </>
     );
