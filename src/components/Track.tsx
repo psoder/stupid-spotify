@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 type TrackProps = {
-    name: string;
-    artists: string[];
+    name: string | undefined;
+    artists: string[] | undefined;
     imageUrl?: string;
 };
 
-const Track = ({ name, artists, imageUrl }: TrackProps) => {
+const Track = ({ name = "No title", artists = ["No artist"], imageUrl }: TrackProps) => {
     return (
         <div className="flex w-full gap-3">
             <Image
@@ -19,7 +19,7 @@ const Track = ({ name, artists, imageUrl }: TrackProps) => {
             <div className="flex w-[calc(100%-48px-0.75rem)] flex-col gap-1">
                 <p className="truncate text-sm text-white-bright">{name}</p>
                 <p className="truncate text-sm text-gray-lightest hover:text-white-bright">
-                    {artists.join(", ")}
+                    {artists?.join(", ")}
                 </p>
             </div>
         </div>

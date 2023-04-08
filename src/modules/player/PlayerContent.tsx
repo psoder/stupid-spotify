@@ -50,15 +50,13 @@ const PlayerContent = () => {
     return (
         <div className="flex items-center gap-x-8 pr-4 text-sm">
             <div className="w-[300px]">
-                {playbackState?.track_window.current_track && (
-                    <Track
-                        name={playbackState?.track_window.current_track.name}
-                        artists={playbackState?.track_window.current_track.artists.map(
-                            (artist) => artist.name
-                        )}
-                        imageUrl={playbackState?.track_window.current_track.album?.images[0].url}
-                    />
-                )}
+                <Track
+                    name={playbackState?.track_window.current_track.name}
+                    artists={playbackState?.track_window.current_track.artists.map(
+                        (artist) => artist.name
+                    )}
+                    imageUrl={playbackState?.track_window.current_track.album?.images[0].url}
+                />
             </div>
 
             <div className="col-span-1 flex min-w-[400px] flex-col gap-1">
