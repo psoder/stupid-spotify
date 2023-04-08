@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IconType } from "react-icons/lib";
 import { TbVolume, TbVolume2, TbVolume3 } from "react-icons/tb";
 import { useSpotifyPlayer } from "react-spotify-web-playback-sdk";
 
@@ -7,7 +8,7 @@ const PlayerVolumeControl = () => {
 
     const [volume, setVolume] = useState(50);
     const [muted, setMuted] = useState(false);
-    const [sliderColor, setSliderColor] = useState("var(--white-neutral)");
+    const [sliderColor, setSliderColor] = useState("var(--white-bright)");
 
     useEffect(() => {
         if (muted) {
@@ -17,19 +18,19 @@ const PlayerVolumeControl = () => {
         }
     }, [muted, volume, player]);
 
-    let volumeIcon;
+    let volumeIcon: IconType;
     if (volume === 0 || muted) {
-        volumeIcon = <TbVolume3 size={20} />;
+        volumeIcon = TbVolume3;
     } else if (volume < 50) {
-        volumeIcon = <TbVolume2 size={20} />;
+        volumeIcon = TbVolume2;
     } else {
-        volumeIcon = <TbVolume size={20} />;
+        volumeIcon = TbVolume;
     }
 
     return (
         <div className="flex min-w-[120px] items-center gap-2">
             <button className="hover:text-white-active" onClick={() => setMuted(!muted)}>
-                {volumeIcon}
+                {volumeIcon({ size: 20, className: "icon" })}
             </button>
             <input
                 type="range"
@@ -41,10 +42,10 @@ const PlayerVolumeControl = () => {
                     setVolume(+evt.target.value);
                 }}
                 onMouseOver={() => setSliderColor("var(--primary)")}
-                onMouseOut={() => setSliderColor("var(--white-neutral)")}
+                onMouseOut={() => setSliderColor("var(--white-bright)")}
                 className="range-slider"
                 style={{
-                    background: `linear-gradient(to right, ${sliderColor} ${volume}%, var(--grayed-out) ${volume}%)`
+                    background: `linear-gradient(to right, ${sliderColor} ${volume}%, var(--gray-medium) ${volume}%)`
                 }}
             />
         </div>

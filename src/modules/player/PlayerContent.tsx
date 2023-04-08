@@ -49,7 +49,7 @@ const PlayerContent = () => {
 
     return (
         <div className="flex items-center gap-x-16">
-            <div className="mr-auto">
+            <div className="mr-auto w-[40ch]">
                 {playbackState?.track_window.current_track && (
                     <Track
                         name={playbackState?.track_window.current_track.name}

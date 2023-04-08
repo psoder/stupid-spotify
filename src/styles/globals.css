@@ -4,10 +4,16 @@
 
 :root {
     --primary: theme("colors.primary");
-    --black: theme("colors.black");
-    --grayed-out: theme("colors.grayed-out");
-    --white-neutral: theme("colors.white.neutral");
-    --white-active: theme("colors.white.active");
+    --white-bright: theme("colors.white.bright");
+
+    --gray-lightest: theme("colors.gray.lightest");
+    --gray-light: theme("colors.gray.light");
+    --gray-medium: theme("colors.gray.medium");
+
+    --black-lightest: theme("colors.black.lightest");
+    --black-light: theme("colors.black.light");
+    --black-medium: theme("colors.black.medium");
+    --black-heavy: theme("colors.black.heavy");
 }
 
 * {
@@ -19,29 +25,25 @@
 html,
 body {
     max-width: 100vw;
-    @apply bg-black;
+    @apply bg-black-medium;
 }
 
 a {
     color: inherit;
     text-decoration: none;
-    @apply hover:text-primary hover:underline;
+    @apply hover:text-white-bright hover:underline;
 }
 
 @layer components {
-    .active-page {
-        @apply font-bold text-primary;
+    .icon {
+        @apply text-gray-lightest hover:text-white-bright;
     }
 
     .range-slider {
-        @apply h-1 w-full cursor-pointer appearance-none rounded-full;
+        @apply h-1 w-full cursor-pointer appearance-none rounded-full text-[0px] hover:text-[8px];
     }
 
-    .hide-long-text {
-        @apply max-w-[25ch] overflow-hidden text-ellipsis whitespace-nowrap;
-    }
-
-    .player-controller-icon {
-        @apply text-gray-400 hover:text-white-neutral;
+    .card {
+        @apply bg-black-light p-2 text-gray-lightest shadow-md shadow-black-heavy;
     }
 }

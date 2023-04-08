@@ -1,5 +1,6 @@
 import { formatTime } from "@/util";
 import { getSession } from "next-auth/react";
+import { TbPlaylistAdd } from "react-icons/tb";
 import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
 import Track from "../Track";
@@ -17,26 +18,27 @@ const TrackListRow = ({ track }: { track: TrackType }) => {
         });
 
         toast.promise(p, {
-            success: `Added "${track.name}" to queue.`,
-            error: `Could not add "${track.name}" to queue.`
+            success: `"${track.name}" was added to the queue.`,
+            error: `"${track.name}" could not be added to the queue.`
         });
     };
 
     return (
-        <div
-            className="grid grid-cols-track-list items-center gap-4 rounded bg-black p-2
-        text-white-neutral shadow-sm shadow-black hover:bg-white-neutral hover:text-black"
-        >
-            <Track
-                name={track.name}
-                artists={track.artists.map((artist) => artist.name)}
-                imageUrl={track.album?.images[0].url}
-            />
-            <p>{track.album?.name}</p>
-            <p>{formatTime(track.duration)}</p>
-            <button className="hover:font-bold" onClick={handleClick}>
-                Add to queue
-            </button>
+        <div className="card group grid w-full grid-cols-track-list items-center gap-8 pr-5 text-sm shadow-none hover:bg-black-lightest hover:text-white-bright">
+            <div>
+                <Track
+                    name={track.name}
+                    artists={track.artists.map((artist) => artist.name)}
+                    imageUrl={track.album?.images[0].url}
+                />
+            </div>
+            <p className="truncate">{track.album?.name}</p>
+            <p className="text-end">{formatTime(track.duration)}</p>
+            <div className="min-w-[24px]">
+                <button className="hidden group-hover:block" onClick={handleClick}>
+                    <TbPlaylistAdd className="icon" size={24} />
+                </button>
+            </div>
         </div>
     );
 };
