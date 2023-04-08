@@ -10,7 +10,7 @@ export default function Header() {
     const [showGH, setShowGH] = useState(true);
 
     return (
-        <header className="flex items-center justify-end gap-3 bg-zinc-800 px-10 py-3 font-medium text-white">
+        <header className="flex items-center justify-end gap-3 bg-zinc-800 px-10 py-3 font-medium text-white-neutral">
             <Link
                 href={"/"}
                 className={`mr-auto text-2xl font-semibold ${

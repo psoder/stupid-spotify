@@ -19,7 +19,7 @@ const TrackListRow = ({ track }: { track: TrackType }) => {
     return (
         <div
             className="grid grid-cols-track-list items-center gap-4 rounded bg-black p-2
-        text-white shadow-sm shadow-black hover:bg-white hover:text-black"
+        text-white-neutral shadow-sm shadow-black hover:bg-white-neutral hover:text-black"
         >
             <Track
                 name={track.name}
