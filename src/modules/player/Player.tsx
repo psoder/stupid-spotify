@@ -25,7 +25,7 @@ export const Player = () => {
             initialVolume={0.5}
         >
             <div className="fixed bottom-3 left-0 right-0 mx-auto w-fit">
-                <div className="card px-3 py-2">
+                <div className="card px-2 py-2">
                     <PlayerContent />
                 </div>
             </div>

@@ -17,8 +17,8 @@ const Track = ({ name, artists, imageUrl }: TrackProps) => {
                 className="w-fit"
             />
             <div className="flex w-[calc(100%-48px-0.75rem)] flex-col gap-1">
-                <p className="truncate text-white-bright ">{name}</p>
-                <p className="truncate text-gray-lightest hover:text-white-bright">
+                <p className="truncate text-sm text-white-bright">{name}</p>
+                <p className="truncate text-sm text-gray-lightest hover:text-white-bright">
                     {artists.join(", ")}
                 </p>
             </div>
