@@ -4,6 +4,7 @@ import Head from "next/head";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
+import Playlist from "@/components/trackList/Playlist";
 
 const Home = () => {
     const { spotifyClient } = useSpotifyClient();
@@ -57,6 +58,7 @@ const Home = () => {
                     </button>
                 </form>
                 <TrackList tracks={spotifyData.tracks ?? []} />
+                {spotifyClient? <Playlist spotifyClient = {spotifyClient}/> : null}
             </main>
         </>
     );
