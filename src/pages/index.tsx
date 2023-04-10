@@ -56,6 +56,7 @@ const Home = () => {
                         Search
                     </button>
                 </form>
+                <h2 className="text-3xl font-bold">Tracks</h2>
                 <TrackList tracks={spotifyData.tracks ?? []} />
             </main>
         </>

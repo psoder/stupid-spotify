@@ -7,7 +7,7 @@ const PlayerProgessBar = () => {
     const player = useSpotifyPlayer();
 
     const [sliderPosition, setSliderPosition] = useState(0);
-    const [sliderColor, setSliderColor] = useState("var(--white-neutral)");
+    const [sliderColor, setSliderColor] = useState("var(--white-bright)");
 
     useEffect(() => {
         if (!playbackState) {
@@ -18,7 +18,7 @@ const PlayerProgessBar = () => {
     }, [playbackState]);
 
     return (
-        <div className="flex min-w-[200px] items-center gap-2 text-sm font-light">
+        <div className="flex min-w-[200px] items-center gap-2 text-xs font-light text-gray-lightest">
             {playbackState && <p>{formatTime(playbackState?.position, true)}</p>}
             <input
                 type="range"
@@ -32,12 +32,12 @@ const PlayerProgessBar = () => {
                 onMouseDown={() => player?.pause()}
                 onMouseUp={() => player?.resume()}
                 onMouseOver={() => setSliderColor("var(--primary)")}
-                onMouseOut={() => setSliderColor("var(--white-neutral)")}
+                onMouseOut={() => setSliderColor("var(--white-bright)")}
                 className="range-slider"
                 style={{
                     background: `linear-gradient(to right, ${sliderColor} ${
                         (100 * (playbackState?.position ?? 0)) / (playbackState?.duration ?? 1)
-                    }%, var(--grayed-out) ${
+                    }%, var(--gray-medium) ${
                         (100 * (playbackState?.position ?? 1)) / (playbackState?.duration ?? 1)
                     }%)`
                 }}

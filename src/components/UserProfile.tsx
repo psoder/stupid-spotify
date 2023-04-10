@@ -5,27 +5,30 @@ import { TbLogout } from "react-icons/tb";
 const UserProfile = () => {
     const { data: session, status } = useSession();
 
+    if (status !== "authenticated") {
+        return (
+            <button
+                className="rounded-full bg-white-bright px-4 py-1 font-bold text-black-heavy hover:text-primary"
+                onClick={() => signIn()}
+            >
+                Sign in
+            </button>
+        );
+    }
+
     return (
-        <div className="flex min-w-[150px] items-center justify-center gap-2 rounded-full bg-black px-3 py-1 text-white-neutral shadow-sm shadow-black">
-            {status === "authenticated" ? (
-                <>
-                    <Image
-                        src={session?.user.image ?? ""}
-                        className="rounded-full"
-                        alt="profile picture"
-                        height={24}
-                        width={24}
-                    />
-                    <p className="text-base font-medium">{session?.user.name}</p>
-                    <button className="hover:text-primary" onClick={() => signOut()}>
-                        <TbLogout size={20} />
-                    </button>
-                </>
-            ) : (
-                <button className="w-full hover:text-primary" onClick={() => signIn()}>
-                    Sign in
-                </button>
-            )}
+        <div className="flex items-center gap-2 rounded-full bg-black-heavy p-1 text-white-bright hover:bg-black-lightest">
+            <Image
+                src={session?.user.image ?? ""}
+                className="rounded-full"
+                alt="profile picture"
+                height={24}
+                width={24}
+            />
+            <p className="text-base font-medium">{session?.user.name}</p>
+            <button onClick={() => signOut()}>
+                <TbLogout className="icon" size={20} />
+            </button>
         </div>
     );
 };

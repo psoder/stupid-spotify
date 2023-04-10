@@ -4,18 +4,20 @@ import { SpotifyClientProvider } from "@/SpotifyClientContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
-import { Inter } from "next/font/google";
+import { Roboto_Flex } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Roboto_Flex({
+    subsets: ["latin"]
+});
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return (
         <SessionProvider session={session}>
             <SpotifyClientProvider>
                 <main
-                    className={`flex min-h-screen w-full flex-col bg-green-500 ${inter.className}`}
+                    className={`flex min-h-screen w-full flex-col bg-green-500 ${font.className}`}
                 >
                     <Header />
                     <div className="flex-grow">

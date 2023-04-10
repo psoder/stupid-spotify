@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { IconType } from "react-icons/lib";
 import {
     TbPlayerPauseFilled,
     TbPlayerPlayFilled,
@@ -12,11 +12,11 @@ const PlayerControls = ({ disabled }: { disabled: boolean }) => {
     const playbackState = usePlaybackState();
 
     const PlayerButton = ({
-        children,
+        icon,
         handleClick,
         disabled = false
     }: {
-        children: ReactElement;
+        icon: IconType;
         handleClick: (arg: unknown) => unknown;
         disabled?: boolean;
     }) => {
@@ -24,28 +24,32 @@ const PlayerControls = ({ disabled }: { disabled: boolean }) => {
             <button
                 onClick={handleClick}
                 disabled={disabled}
-                className="hover:text-white-active disabled:text-gray-600"
+                className="hover:text-white-bright disabled:text-gray-medium"
             >
-                {children}
+                {icon({ size: 24, className: "icon" })}
             </button>
         );
     };
 
     return (
         <div className="flex justify-center gap-3">
-            <PlayerButton disabled={disabled} handleClick={() => player?.previousTrack()}>
-                <TbPlayerSkipBackFilled className="player-controller-icon" size={24} />
-            </PlayerButton>
-            <PlayerButton disabled={disabled} handleClick={() => player?.togglePlay()}>
-                {playbackState?.paused ? (
-                    <TbPlayerPlayFilled className="player-controller-icon" size={24} />
-                ) : (
-                    <TbPlayerPauseFilled className="player-controller-icon" size={24} />
-                )}
-            </PlayerButton>
-            <PlayerButton disabled={disabled} handleClick={() => player?.nextTrack()}>
-                <TbPlayerSkipForwardFilled className="player-controller-icon" size={24} />
-            </PlayerButton>
+            <PlayerButton
+                disabled={disabled}
+                handleClick={() => player?.previousTrack()}
+                icon={TbPlayerSkipBackFilled}
+            />
+
+            <PlayerButton
+                disabled={disabled}
+                handleClick={() => player?.togglePlay()}
+                icon={playbackState?.paused ? TbPlayerPlayFilled : TbPlayerPauseFilled}
+            />
+
+            <PlayerButton
+                disabled={disabled}
+                handleClick={() => player?.nextTrack()}
+                icon={TbPlayerSkipForwardFilled}
+            />
         </div>
     );
 };

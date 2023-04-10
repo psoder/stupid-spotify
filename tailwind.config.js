@@ -4,17 +4,25 @@ module.exports = {
     theme: {
         extend: {
             gridTemplateColumns: {
-                "track-list": "1fr 1fr 50px 100px"
+                "track-list": "55% auto 6ch min-content"
             },
             colors: {
                 transparent: "transparent",
                 current: "currentColor",
-                primary: "#1DB954",
-                black: "#191414",
-                "grayed-out": "#555555",
+                primary: "#1ED760",
+                black: {
+                    lightest: "#282828",
+                    light: "#181818",
+                    medium: "#121212",
+                    heavy: "#000000"
+                },
+                gray: {
+                    lightest: "#B3B3B3",
+                    light: "#727272",
+                    medium: "#5E5E5E"
+                },
                 white: {
-                    neutral: "#CCCCCC",
-                    active: "#FFFFFF"
+                    bright: "#FFFFFF"
                 }
             }
         }
