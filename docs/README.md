@@ -132,7 +132,7 @@ src
 -   `types/` contains our custom types
 -   `util/` contains utility functions
 
-<img src="docs/component-explanation.png" height="300px" />
+<img src="component-explanation.png" height="300px" />
 
 Some other interesting files and folders are:
 
