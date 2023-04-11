@@ -24,7 +24,7 @@ const Queue = () => {
     }, [playbackState?.track_window.current_track, spotifyClient?.token]);
 
     return (
-        <div className="flex flex-col text-gray-lightest">
+        <div className="flex h-full flex-col overflow-scroll text-gray-lightest">
             <QueueHeader text="Now playing" />
             {currentlyPlaying ? (
                 <QueueItem track={currentlyPlaying} position={0} playing />
