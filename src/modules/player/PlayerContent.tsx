@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import PlayerControls from "./PlayerControls";
 import PlayerProgessBar from "./PlayerProgressBar";
 import PlayerVolumeControl from "./PlayerVolumeControl";
+import QueueContainer from "./QueueContainer";
 
 const PlayerContent = () => {
     const playbackState = usePlaybackState(true, 500);
@@ -65,7 +66,8 @@ const PlayerContent = () => {
             </div>
 
             <div className="w-[300px]">
-                <div className="ml-auto w-min">
+                <div className="ml-auto flex w-min gap-2">
+                    <QueueContainer />
                     <PlayerVolumeControl />
                 </div>
             </div>

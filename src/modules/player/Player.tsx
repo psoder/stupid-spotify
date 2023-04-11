@@ -1,10 +1,18 @@
+import useSpotifyPlayback from "@/hooks/useSpotifyPlayback";
 import { getSession, useSession } from "next-auth/react";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { WebPlaybackSDK } from "react-spotify-web-playback-sdk";
 import PlayerContent from "./PlayerContent";
 
 export const Player = () => {
-    const { status } = useSession();
+    const { data: session, status } = useSession();
+
+    const { refreshQueue } = useSpotifyPlayback(session?.accessToken ?? "");
+
+    useEffect(() => {
+        refreshQueue();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // eslint-disable-next-line no-unused-vars
     const getOAuthToken = useCallback(async (cb: (token: string) => void) => {
