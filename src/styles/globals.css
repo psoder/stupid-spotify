@@ -49,3 +49,42 @@
         @apply bg-black-light p-2 text-gray-lightest shadow-md shadow-black-heavy;
     }
 }
+
+.playlist-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #191414;
+    color: #fff;
+}
+
+.playlist-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-name {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.playlist-link {
+    color: #1db954;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.playlist-link:hover {
+    text-decoration: underline;
+}
