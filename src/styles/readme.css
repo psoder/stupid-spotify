@@ -1,0 +1,57 @@
+.readme a {
+    @apply text-primary hover:text-primary;
+}
+
+.readme h1 {
+    @apply mb-2 mt-4 text-3xl font-bold text-primary;
+}
+
+.readme h2 {
+    @apply mb-2 mt-4 text-2xl;
+}
+
+.readme h3 {
+    @apply mb-2 mt-4 text-xl;
+}
+
+.readme code,
+.readme pre {
+    @apply rounded bg-black-lightest p-1 font-medium text-white-bright;
+}
+
+.readme pre {
+    @apply mb-2;
+}
+
+.readme p {
+    @apply mb-2;
+}
+
+.readme ul {
+    @apply my-4;
+}
+
+.readme li {
+    @apply mb-1 ml-4 list-disc;
+}
+
+.readme img {
+    @apply m-4 mx-auto w-[70%];
+}
+
+.readme table {
+    @apply mx-auto my-4 rounded bg-black-heavy shadow shadow-black-heavy;
+}
+
+.readme table td,
+.readme th {
+    @apply p-3;
+}
+
+.readme th {
+    @apply bg-black-heavy;
+}
+
+.readme tbody > tr {
+    @apply border-t border-gray-medium hover:bg-black-light;
+}

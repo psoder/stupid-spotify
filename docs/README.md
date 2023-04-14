@@ -8,7 +8,7 @@ a way of discovering new music in ways that are not supposed to be. We will impl
 different filters to enable the user’s journey to new music, and finally, save the
 song you found to your own Spotify playlist.
 
-This is the final project for the course [DH2642 Interaction Programming and theDynamic Web](https://www.kth.se/student/kurser/kurs/DH2642?l=en)
+This is the final project for the course [DH2642 Interaction Programming and the Dynamic Web](https://www.kth.se/student/kurser/kurs/DH2642?l=en)
 given at KTH during the spring of 2023.
 
 ## Getting started
@@ -111,28 +111,21 @@ More information and documentation can be found [here](https://next-auth.js.org/
 
 The structure of the `src/` directory can be broken down like this:
 
-```
+```ts
 src
-├── components
-├── hooks
-├── modules
-├── pages
-│   └── api
-├── styles
-├── types
-└── util
+├── components  // different components that's used in the application
+├── hooks       // contains hooks
+├── modules     // contains modules. Modules are larger components.
+├── pages       // contains the different pages
+│   └── api     // contains the applications api
+├── styles      // global styling
+├── types       // contains our custom types
+└── util        // utility functions
 ```
 
--   `components/` contains the different components that's used in the application.
--   `hooks/` contains hooks used in components.
--   `modules/` contains modules. Modules are larger components.
--   `pages/` contains the different pages. Since NextJS uses directory based routing the different files create different pages.
--   `pages/api/` contains is the applications api and all routes are files in this folder.
--   `styles/` contains global styling.
--   `types/` contains our custom types
--   `util/` contains utility functions
+An explanation of the different components can be seen below.
 
-<img src="component-explanation.png" height="300px" />
+<img src="https://user-images.githubusercontent.com/52171526/231905919-f2a655a2-9335-440b-8b88-d0143831e91d.png" height="300px" />
 
 Some other interesting files and folders are:
 
@@ -142,13 +135,10 @@ Some other interesting files and folders are:
 -   `.yarn\*`, `.pnp*`: dependency management
 -   `.eslint*`, `.prettier*`: code linting and formating
 -   `.editorconfig`, `.vscode/`, `.idea/`: editor configuration
-
-Other files under the root:
-
 -   `.env.example`: environment variables
 -   `next.config.js`: NextJS configuration
--   `tsconfig.json`: typescript configuration
--   `tailwind.config.js`, `postcss.config.js`: Tailwind configuration.
+-   `tsconfig.json`: TypeScript configuration
+-   `tailwind.config.js`, `postcss.config.js`: Tailwind configuration
 
 ## Project Status
 
