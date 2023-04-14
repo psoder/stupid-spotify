@@ -4,6 +4,7 @@ import Head from "next/head";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
+import PlaylistMaker from "@/components/trackList/PlaylistMaker";
 
 const Home = () => {
     const { spotifyClient } = useSpotifyClient();
@@ -58,6 +59,7 @@ const Home = () => {
                 </form>
                 <h2 className="text-3xl font-bold">Tracks</h2>
                 <TrackList tracks={spotifyData.tracks ?? []} />
+                {spotifyClient ? <PlaylistMaker spotifyClient={spotifyClient} /> : null}
             </main>
         </>
     );
