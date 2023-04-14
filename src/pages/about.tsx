@@ -27,4 +27,6 @@ const About = ({ html }: { html: string }) => {
     );
 };
 
+About.spotifyPlayback = true;
+
 export default About;

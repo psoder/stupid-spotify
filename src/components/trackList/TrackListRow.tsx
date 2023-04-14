@@ -1,19 +1,19 @@
 import { formatTime } from "@/util";
-import { getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { TbPlaylistAdd } from "react-icons/tb";
 import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
 import Track from "../Track";
 
 const TrackListRow = ({ track }: { track: TrackType }) => {
-    const handleClick = async () => {
-        const accessToken = (await getSession())?.accessToken;
+    const { data: session } = useSession();
 
+    const handleClick = async () => {
         const p = fetch(`https://api.spotify.com/v1/me/player/queue?uri=${track.uri}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${accessToken}`
+                Authorization: `Bearer ${session?.accessToken}`
             }
         });
 

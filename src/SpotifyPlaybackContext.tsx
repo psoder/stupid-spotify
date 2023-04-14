@@ -1,4 +1,3 @@
-import { getSession } from "next-auth/react";
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 import { SimpleTrack } from "./types/spotify";
 
@@ -15,19 +14,23 @@ const SpotifyPlaybackContext = createContext<SpotifyPlaybackContextType>({
     queue: { setQueue: () => {} }
 });
 
-const SpotifyPlaybackProvider = ({ children }: { children: ReactNode }) => {
+const SpotifyPlaybackProvider = ({
+    children,
+    accessToken
+}: {
+    children: ReactNode;
+    accessToken: string;
+}) => {
     const [spotifyQueue, setSpotifyQueue] = useState<SimpleTrack[]>();
     const [currentlyPlaying, setCurrentlyPlaying] = useState<SimpleTrack>();
 
     useEffect(() => {
         const fetchData = async () => {
-            const token = (await getSession())?.accessToken;
-
             // Fetch queue
             const queueRes = await fetch(`https://api.spotify.com/v1/me/player/queue`, {
                 method: "GET",
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${accessToken}`,
                     "Content-Type": "application/json"
                 }
             });
@@ -45,7 +48,7 @@ const SpotifyPlaybackProvider = ({ children }: { children: ReactNode }) => {
                 {
                     method: "GET",
                     headers: {
-                        Authorization: `Bearer ${token}`,
+                        Authorization: `Bearer ${accessToken}`,
                         "Content-Type": "application/json"
                     }
                 }

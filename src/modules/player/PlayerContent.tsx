@@ -1,5 +1,4 @@
 import Track from "@/components/Track";
-import { getSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useErrorState, usePlaybackState, usePlayerDevice } from "react-spotify-web-playback-sdk";
 import { toast } from "react-toastify";
@@ -8,7 +7,7 @@ import PlayerProgessBar from "./PlayerProgressBar";
 import PlayerVolumeControl from "./PlayerVolumeControl";
 import QueueContainer from "./QueueContainer";
 
-const PlayerContent = () => {
+const PlayerContent = ({ accessToken }: { accessToken: string }) => {
     const playbackState = usePlaybackState(true, 500);
     const playerDevice = usePlayerDevice();
     const errorState = useErrorState();
@@ -19,8 +18,6 @@ const PlayerContent = () => {
         }
 
         const transferPlayback = async () => {
-            const accessToken = (await getSession())?.accessToken;
-
             // https://developer.spotify.com/documentation/web-api/reference/transfer-a-users-playback
             const p = fetch(`https://api.spotify.com/v1/me/player`, {
                 method: "PUT",
@@ -39,7 +36,7 @@ const PlayerContent = () => {
         };
 
         transferPlayback();
-    }, [playerDevice]);
+    }, [playerDevice, accessToken]);
 
     useEffect(() => {
         if (errorState) {

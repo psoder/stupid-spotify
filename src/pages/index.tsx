@@ -1,15 +1,18 @@
 import TrackList from "@/components/trackList/TrackList";
 import useSpotifyClient from "@/hooks/useSpotifyClient";
-import Head from "next/head";
+import { NextPage } from "next";
+import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
 
-const Home = () => {
+const Home: NextPage = () => {
     const { spotifyClient } = useSpotifyClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
     const [searchKey, setSearchKey] = useState("");
+
+    const { data: session } = useSession();
 
     const searchTracks = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -42,24 +45,18 @@ const Home = () => {
     };
 
     return (
-        <>
-            <Head>
-                <title>Stupid Spotify</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/doughnut-cat.png" />
-            </Head>
-            <main className="flex flex-col items-center p-5">
-                <h2 className="text-2xl">Search track</h2>
-                <form onSubmit={searchTracks}>
-                    <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
-                    <button className="button" type={"submit"}>
-                        Search
-                    </button>
-                </form>
-                <h2 className="text-3xl font-bold">Tracks</h2>
-                <TrackList tracks={spotifyData.tracks ?? []} />
-            </main>
-        </>
+        <main className="flex flex-col items-center p-5">
+            <h2 className="text-2xl">Search track</h2>
+            <form onSubmit={searchTracks}>
+                <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
+                <button className="button" type={"submit"}>
+                    Search
+                </button>
+            </form>
+            <h2 className="text-3xl font-bold">Tracks</h2>
+            <TrackList tracks={spotifyData.tracks ?? []} />
+        </main>
     );
 };
+
 export default Home;
