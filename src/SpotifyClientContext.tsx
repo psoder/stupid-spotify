@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { Client } from "spotify-api.js";
 
@@ -7,25 +8,23 @@ const SpotifyClientContext = createContext<[Client | undefined, (arg: any) => an
     () => {}
 ]);
 
-const SpotifyClientProvider = ({
-    children,
-    accessToken
-}: {
-    children: ReactNode;
-    accessToken: string;
-}) => {
+const SpotifyClientProvider = ({ children }: { children: ReactNode }) => {
     const [spotifyClient, setSpotifyClient] = useState<Client>();
+    const { data: session } = useSession();
 
     useEffect(() => {
         async function createClient() {
-            const c = new Client({ token: accessToken });
+            if (!session?.accessToken) {
+                return;
+            }
+            const c = new Client({ token: session?.accessToken });
             setSpotifyClient(c);
         }
 
         if (!spotifyClient) {
             createClient();
         }
-    }, [accessToken, spotifyClient]);
+    }, [session?.accessToken, spotifyClient]);
 
     return (
         <SpotifyClientContext.Provider value={[spotifyClient, setSpotifyClient]}>

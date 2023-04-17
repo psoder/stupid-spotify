@@ -1,3 +1,4 @@
+import Authentication from "@/components/common/Authentication";
 import TrackList from "@/components/trackList/TrackList";
 import useSpotifyClient from "@/hooks/useSpotifyClient";
 import { NextPage } from "next";
@@ -12,7 +13,15 @@ const Home: NextPage = () => {
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
     const [searchKey, setSearchKey] = useState("");
 
-    const { data: session } = useSession();
+    const { status } = useSession();
+
+    if (status !== "authenticated") {
+        return (
+            <div className="mt-60 flex justify-center">
+                <Authentication />
+            </div>
+        );
+    }
 
     const searchTracks = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

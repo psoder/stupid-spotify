@@ -7,10 +7,7 @@ const UserProfile = () => {
 
     if (status !== "authenticated" || !session) {
         return (
-            <button
-                className="rounded-full bg-white-bright px-4 py-1 font-bold text-black-heavy hover:text-primary"
-                onClick={() => signIn()}
-            >
+            <button className="button-white" onClick={() => signIn()}>
                 Sign in
             </button>
         );
