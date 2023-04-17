@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { ReactElement, useEffect } from "react";
 import { TbMusic } from "react-icons/tb";
 import { usePlaybackState } from "react-spotify-web-playback-sdk";
-import { Track } from "./Track";
+import { TrackSummary } from "./TrackSummary";
 
 export const Queue = () => {
     const { spotifyClient } = useSpotifyClient();
@@ -71,7 +71,7 @@ const QueueItem = ({
             }`}
         >
             <div className="w-full overflow-hidden">
-                <Track
+                <TrackSummary
                     name={track.name}
                     artists={track.artists.map((artist) => artist.name)}
                     imageUrl={track.album.images[0].url}

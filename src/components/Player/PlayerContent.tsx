@@ -1,4 +1,4 @@
-import { Track } from "@/components/Track";
+import { TrackSummary } from "@/components/TrackSummary";
 import { useEffect } from "react";
 import { useErrorState, usePlaybackState, usePlayerDevice } from "react-spotify-web-playback-sdk";
 import { toast } from "react-toastify";
@@ -48,7 +48,7 @@ export const PlayerContent = ({ accessToken }: { accessToken: string }) => {
     return (
         <div className="flex items-center gap-x-8 pr-4 text-sm">
             <div className="w-[300px]">
-                <Track
+                <TrackSummary
                     name={playbackState?.track_window.current_track.name}
                     artists={playbackState?.track_window.current_track.artists.map(
                         (artist) => artist.name
