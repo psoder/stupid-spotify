@@ -34,7 +34,7 @@ export const Player = () => {
         >
             <div className="fixed bottom-3 left-0 right-0 mx-auto w-fit">
                 <div className="card px-2 py-2">
-                    <PlayerContent />
+                    <PlayerContent accessToken={session?.accessToken ?? ""} />
                 </div>
             </div>
         </WebPlaybackSDK>

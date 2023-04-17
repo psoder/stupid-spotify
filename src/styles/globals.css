@@ -50,4 +50,8 @@
     .card {
         @apply bg-black-light p-2 text-gray-lightest shadow-md shadow-black-heavy;
     }
+
+    .button-white {
+        @apply rounded-full bg-white-bright px-4 py-1 font-bold text-black-heavy hover:text-primary;
+    }
 }
