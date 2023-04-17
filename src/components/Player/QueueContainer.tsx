@@ -1,9 +1,9 @@
-import Modal from "@/components/Modal";
-import Queue from "@/components/Queue";
+import { Modal } from "@/components/common/Modal";
+import { Queue } from "@/components/Queue";
 import { useState } from "react";
 import { TbList } from "react-icons/tb";
 
-const QueueContainer = () => {
+export const QueueContainer = () => {
     const [showQueue, setShowQueue] = useState(false);
 
     return (
@@ -24,5 +24,3 @@ const QueueContainer = () => {
         </>
     );
 };
-
-export default QueueContainer;

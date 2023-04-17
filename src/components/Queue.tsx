@@ -1,14 +1,13 @@
-import useSpotifyClient from "@/hooks/useSpotifyClient";
-import useSpotifyPlayback from "@/hooks/useSpotifyPlayback";
+import { useSpotifyClient } from "@/hooks/useSpotifyClient";
+import { useSpotifyPlayback } from "@/hooks/useSpotifyPlayback";
 import { SimpleTrack } from "@/types/spotify";
 import { useSession } from "next-auth/react";
 import { ReactElement, useEffect } from "react";
 import { TbMusic } from "react-icons/tb";
 import { usePlaybackState } from "react-spotify-web-playback-sdk";
-import Track from "./Track";
-("@/hooks/useSpotifyPlayback");
+import { Track } from "./Track";
 
-const Queue = () => {
+export const Queue = () => {
     const { spotifyClient } = useSpotifyClient();
     const playbackState = usePlaybackState();
 
@@ -50,7 +49,6 @@ const QueueHeader = ({ text }: { text: string }) => {
     );
 };
 
-// eslint-disable-next-line no-undef
 const QueueItem = ({
     track,
     position: pos,
@@ -83,5 +81,3 @@ const QueueItem = ({
         </div>
     );
 };
-
-export default Queue;

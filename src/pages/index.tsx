@@ -1,6 +1,6 @@
-import Authentication from "@/components/common/Authentication";
-import TrackList from "@/components/trackList/TrackList";
-import useSpotifyClient from "@/hooks/useSpotifyClient";
+import { Authentication } from "@/components/common/Authentication";
+import { TrackList } from "@/components/TrackList";
+import { useSpotifyClient } from "@/hooks/useSpotifyClient";
 import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
