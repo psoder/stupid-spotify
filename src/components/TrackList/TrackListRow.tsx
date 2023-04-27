@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { TbPlaylistAdd } from "react-icons/tb";
 import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
-import { Track } from "../TrackSummary";
+import { TrackSummary } from "../TrackSummary";
 
 export const TrackListRow = ({ track }: { track: TrackType }) => {
     const { data: session } = useSession();
@@ -26,7 +26,7 @@ export const TrackListRow = ({ track }: { track: TrackType }) => {
     return (
         <div className="card group grid w-full grid-cols-track-list items-center gap-8 pr-5 text-sm shadow-none hover:bg-black-lightest hover:text-white-bright">
             <div>
-                <Track
+                <TrackSummary
                     name={track.name}
                     artists={track.artists.map((artist) => artist.name)}
                     imageUrl={track.album?.images[0].url}
