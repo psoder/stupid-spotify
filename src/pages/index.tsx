@@ -6,12 +6,13 @@ import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
+import { TbSearch } from "react-icons/tb";
 
 const Home: NextPage = () => {
     const { spotifyClient } = useSpotifyClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
-    const [searchKey, setSearchKey] = useState("");
+    const [searchKey, setSearchKey] = useState("hjbh");
 
     const { status } = useSession();
 
@@ -56,9 +57,22 @@ const Home: NextPage = () => {
     return (
         <main className="flex flex-col items-center p-5">
             <h2 className="text-2xl">Search track</h2>
-            <form onSubmit={searchTracks}>
-                <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
-                <button className="button" type={"submit"}>
+            <form className="flex items-center" onSubmit={searchTracks}>
+                <i className=" float-left bg-white-bright">
+                    <TbSearch className=" text-gray-lightest" size={24} />
+                </i>
+                <input
+                    placeholder="Search for interesting properties!"
+                    size={40}
+                    type="text"
+                    onChange={(e) => setSearchKey(e.target.value)}
+                    className="mr-5 border-spacing-10"
+                />
+
+                <button
+                    className="  rounded-full bg-themegreen-depper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-themegreen-medium"
+                    type={"submit"}
+                >
                     Search
                 </button>
             </form>
