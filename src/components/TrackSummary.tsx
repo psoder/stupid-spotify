@@ -6,7 +6,11 @@ type TrackProps = {
     imageUrl?: string;
 };
 
-const Track = ({ name = "No title", artists = ["No artist"], imageUrl }: TrackProps) => {
+export const TrackSummary = ({
+    name = "No title",
+    artists = ["No artist"],
+    imageUrl
+}: TrackProps) => {
     return (
         <div className="flex w-full items-center gap-3">
             <div className="w-fill relative h-12 w-12 object-contain">
@@ -26,5 +30,3 @@ const Track = ({ name = "No title", artists = ["No artist"], imageUrl }: TrackPr
         </div>
     );
 };
-
-export default Track;

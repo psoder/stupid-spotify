@@ -1,3 +1,0 @@
-# testing
-
-Testing tests

@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react";
 
-const Authentication = () => {
+export const Authentication = () => {
     return (
         <div className="card flex w-fit max-w-prose flex-col items-center gap-5 p-5 text-xl">
             <h2 className="font-bold text-white-bright">Authentication required</h2>
@@ -11,5 +11,3 @@ const Authentication = () => {
         </div>
     );
 };
-
-export default Authentication;

@@ -1,8 +1,8 @@
-import { SpotifyPlaybackContext } from "@/SpotifyPlaybackContext";
+import { SpotifyPlaybackContext } from "@/context/SpotifyPlaybackContext";
 import { SimpleTrack } from "@/types/spotify";
 import { useContext } from "react";
 
-const useSpotifyPlayback = (token: string) => {
+export const useSpotifyPlayback = (token: string) => {
     const { currentlyPlaying: playing, queue } = useContext(SpotifyPlaybackContext);
 
     async function refreshQueue() {
@@ -68,5 +68,3 @@ const useSpotifyPlayback = (token: string) => {
 
     return { queue: queue.items, refreshQueue, add, currentlyPlaying: playing.track };
 };
-
-export default useSpotifyPlayback;

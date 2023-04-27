@@ -1,7 +1,7 @@
 import type { Track } from "spotify-api.js";
-import TrackListRow from "./TrackListRow";
+import { TrackListRow } from "./TrackListRow";
 
-const TrackList = ({ tracks }: { tracks: Track[] }) => {
+export const TrackList = ({ tracks }: { tracks: Track[] }) => {
     return (
         <div className="flex w-[1000px] flex-col items-center gap-1">
             {tracks.length > 0 ? (
@@ -12,5 +12,3 @@ const TrackList = ({ tracks }: { tracks: Track[] }) => {
         </div>
     );
 };
-
-export default TrackList;

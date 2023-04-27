@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
-import { SimpleTrack } from "./types/spotify";
+import { SimpleTrack } from "@/types/spotify";
 
 type SpotifyPlaybackContextType = {
     currentlyPlaying: {

@@ -1,13 +1,13 @@
-import Track from "@/components/Track";
+import { TrackSummary } from "@/components/TrackSummary";
 import { useEffect } from "react";
 import { useErrorState, usePlaybackState, usePlayerDevice } from "react-spotify-web-playback-sdk";
 import { toast } from "react-toastify";
-import PlayerControls from "./PlayerControls";
-import PlayerProgessBar from "./PlayerProgressBar";
-import PlayerVolumeControl from "./PlayerVolumeControl";
-import QueueContainer from "./QueueContainer";
+import { PlayerControls } from "./PlayerControls";
+import { PlayerProgessBar } from "./PlayerProgressBar";
+import { PlayerVolumeControl } from "./PlayerVolumeControl";
+import { QueueContainer } from "./QueueContainer";
 
-const PlayerContent = ({ accessToken }: { accessToken: string }) => {
+export const PlayerContent = ({ accessToken }: { accessToken: string }) => {
     const playbackState = usePlaybackState(true, 500);
     const playerDevice = usePlayerDevice();
     const errorState = useErrorState();
@@ -48,7 +48,7 @@ const PlayerContent = ({ accessToken }: { accessToken: string }) => {
     return (
         <div className="flex items-center gap-x-8 pr-4 text-sm">
             <div className="w-[300px]">
-                <Track
+                <TrackSummary
                     name={playbackState?.track_window.current_track.name}
                     artists={playbackState?.track_window.current_track.artists.map(
                         (artist) => artist.name
@@ -71,5 +71,3 @@ const PlayerContent = ({ accessToken }: { accessToken: string }) => {
         </div>
     );
 };
-
-export default PlayerContent;

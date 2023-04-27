@@ -3,9 +3,9 @@ import { useSession } from "next-auth/react";
 import { TbPlaylistAdd } from "react-icons/tb";
 import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
-import Track from "../Track";
+import { Track } from "../TrackSummary";
 
-const TrackListRow = ({ track }: { track: TrackType }) => {
+export const TrackListRow = ({ track }: { track: TrackType }) => {
     const { data: session } = useSession();
 
     const handleClick = async () => {
@@ -42,5 +42,3 @@ const TrackListRow = ({ track }: { track: TrackType }) => {
         </div>
     );
 };
-
-export default TrackListRow;

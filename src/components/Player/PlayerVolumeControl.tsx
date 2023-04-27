@@ -3,7 +3,7 @@ import { IconType } from "react-icons/lib";
 import { TbVolume, TbVolume2, TbVolume3 } from "react-icons/tb";
 import { useSpotifyPlayer } from "react-spotify-web-playback-sdk";
 
-const PlayerVolumeControl = () => {
+export const PlayerVolumeControl = () => {
     const player = useSpotifyPlayer();
 
     const [volume, setVolume] = useState(50);
@@ -51,5 +51,3 @@ const PlayerVolumeControl = () => {
         </div>
     );
 };
-
-export default PlayerVolumeControl;
