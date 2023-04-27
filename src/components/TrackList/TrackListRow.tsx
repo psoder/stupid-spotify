@@ -3,9 +3,9 @@ import { useSession } from "next-auth/react";
 import { TbPlaylistAdd } from "react-icons/tb";
 import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
-import { TrackSummary } from "../TrackSummary";
+import Track from "../Track";
 
-export const TrackListRow = ({ track }: { track: TrackType }) => {
+const TrackListRow = ({ track }: { track: TrackType }) => {
     const { data: session } = useSession();
 
     const handleClick = async () => {
@@ -24,21 +24,23 @@ export const TrackListRow = ({ track }: { track: TrackType }) => {
     };
 
     return (
-        <div className="card group grid w-full grid-cols-track-list items-center gap-8 pr-5 text-sm shadow-none hover:bg-black-lightest hover:text-white-bright">
-            <div>
-                <TrackSummary
+        <tr className="columns card group">
+            <td className="col-span-6">
+                <Track
+                    imageUrl={track.album?.images[0].url}
                     name={track.name}
                     artists={track.artists.map((artist) => artist.name)}
-                    imageUrl={track.album?.images[0].url}
                 />
-            </div>
-            <p className="truncate">{track.album?.name}</p>
-            <p className="text-end">{formatTime(track.duration)}</p>
-            <div className="min-w-[24px]">
+            </td>
+            <td className="col-span-4 truncate">{track.album?.name}</td>
+            <td className="col-span-1 text-end">{formatTime(track.duration)}</td>
+            <td className="col-span-1 min-w-[24px]">
                 <button className="hidden group-hover:block" onClick={handleClick}>
                     <TbPlaylistAdd className="icon" size={24} />
                 </button>
-            </div>
-        </div>
+            </td>
+        </tr>
     );
 };
+
+export default TrackListRow;
