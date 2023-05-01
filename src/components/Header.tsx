@@ -4,14 +4,16 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { GoLinkExternal, GoMarkGithub } from "react-icons/go";
 import { IconType } from "react-icons/lib";
-import { TbHome, TbInfoSquareRounded } from "react-icons/tb";
+import { TbHome, TbInfoSquareRounded, TbSearch } from "react-icons/tb";
 
 export function Header() {
     return (
         <header className="flex items-center justify-end gap-4 bg-black-light px-10 py-3 text-lg text-gray-lightest">
             <h1 className="mr-auto text-2xl font-extrabold text-primary">Stupid Spotify</h1>
 
-            <NavbarLink title="Home" href="/" icon={TbHome} />
+            <NavbarLink title="Welcome" href="/welcome" icon={TbHome} />
+
+            <NavbarLink title="Search" href="/" icon={TbSearch} />
 
             <NavbarLink title="About" href="/about" icon={TbInfoSquareRounded} />
 
