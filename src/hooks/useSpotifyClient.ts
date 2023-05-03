@@ -1,10 +1,8 @@
-import { SpotifyClientContext } from "@/SpotifyClientContext";
+import { SpotifyClientContext } from "@/context/SpotifyClientContext";
 import { useContext } from "react";
 
-const useSpotifyClient = () => {
+export const useSpotifyClient = () => {
     const [spotifyClient, setSpotifyClient] = useContext(SpotifyClientContext);
 
     return { spotifyClient, setSpotifyClient };
 };
-
-export default useSpotifyClient;

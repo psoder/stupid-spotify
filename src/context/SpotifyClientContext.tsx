@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { Client } from "spotify-api.js";
 
-// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SpotifyClientContext = createContext<[Client | undefined, (arg: any) => any]>([
     undefined,
     () => {}

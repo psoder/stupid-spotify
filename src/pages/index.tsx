@@ -1,6 +1,6 @@
-import Authentication from "@/components/common/Authentication";
-import TrackList from "@/components/trackList/TrackList";
-import useSpotifyClient from "@/hooks/useSpotifyClient";
+import { Authentication } from "@/components/common/Authentication";
+import { TrackList } from "@/components/TrackList";
+import { useSpotifyClient } from "@/hooks/useSpotifyClient";
 import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     const { spotifyClient } = useSpotifyClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
-    const [searchKey, setSearchKey] = useState("hjbh");
+    const [searchKey, setSearchKey] = useState("");
 
     const { status } = useSession();
 
@@ -58,8 +58,8 @@ const Home: NextPage = () => {
         <main className="flex flex-col items-center p-5">
             <h2 className="text-2xl">Search track</h2>
             <form className="flex items-center" onSubmit={searchTracks}>
-                <i className=" float-left bg-white-bright">
-                    <TbSearch className=" text-gray-lightest" size={24} />
+                <i className="float-left bg-white-bright">
+                    <TbSearch className="text-gray-lightest" size={24} />
                 </i>
                 <input
                     placeholder="Search for interesting properties!"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                 />
 
                 <button
-                    className="  rounded-full bg-themegreen-depper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-themegreen-medium"
+                    className="rounded-full bg-green-deeper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-green-medium"
                     type={"submit"}
                 >
                     Search
