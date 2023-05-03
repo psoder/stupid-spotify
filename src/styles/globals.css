@@ -16,6 +16,12 @@
     --black-light: theme("colors.black.light");
     --black-medium: theme("colors.black.medium");
     --black-heavy: theme("colors.black.heavy");
+
+    --green-main: theme("colors.green.main");
+    --green-deeper: theme("colors.green.deeper");
+    --green-medium: theme("colors.green.medium");
+    --green-darker: theme("colors.green.darker");
+    --green-darkest: theme("colors.green.darkest");
 }
 
 @layer base {
@@ -54,8 +60,7 @@
     .button-white {
         @apply rounded-full bg-white-bright px-4 py-1 font-bold text-black-heavy hover:text-primary;
     }
-    .columns {
-        @apply grid grid-cols-12 items-center gap-10 text-sm hover:bg-black-lightest hover:text-white-bright;
-        /* 200px repeat(auto-fill, 100px) 300px card ;  group  shadow-none ;*/
+    .track-list-grid-columns {
+        @apply grid grid-cols-12 items-center gap-10;
     }
 }

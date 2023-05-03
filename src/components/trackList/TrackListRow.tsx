@@ -24,7 +24,7 @@ const TrackListRow = ({ track }: { track: TrackType }) => {
     };
 
     return (
-        <tr className="columns card group">
+        <tr className="track-list-grid-columns card group text-sm hover:bg-black-lightest hover:text-white-bright">
             <td className="col-span-6">
                 <Track
                     imageUrl={track.album?.images[0].url}
