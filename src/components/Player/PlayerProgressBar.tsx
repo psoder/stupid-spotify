@@ -2,7 +2,7 @@ import { formatTime } from "@/util";
 import { useEffect, useState } from "react";
 import { usePlaybackState, useSpotifyPlayer } from "react-spotify-web-playback-sdk";
 
-const PlayerProgessBar = () => {
+export const PlayerProgessBar = () => {
     const playbackState = usePlaybackState(true, 500);
     const player = useSpotifyPlayer();
 
@@ -46,5 +46,3 @@ const PlayerProgessBar = () => {
         </div>
     );
 };
-
-export default PlayerProgessBar;

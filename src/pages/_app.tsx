@@ -1,7 +1,7 @@
-import Header from "@/components/Header";
-import { Player } from "@/modules/player";
-import { SpotifyClientProvider } from "@/SpotifyClientContext";
-import { SpotifyPlaybackProvider } from "@/SpotifyPlaybackContext";
+import { Header } from "@/components/Header";
+import { Player } from "@/components/Player";
+import { SpotifyClientProvider } from "@/context/SpotifyClientContext";
+import { SpotifyPlaybackProvider } from "@/context/SpotifyPlaybackContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";

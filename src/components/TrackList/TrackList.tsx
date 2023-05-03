@@ -1,8 +1,8 @@
-import TrackListRow from "./TrackListRow";
+import { TrackListRow } from "./TrackListRow";
 import type { Track } from "spotify-api.js";
 import { TbClockPlay } from "react-icons/tb";
 
-const TrackList = ({ tracks }: { tracks: Track[] }) => {
+export const TrackList = ({ tracks }: { tracks: Track[] }) => {
     if (tracks.length > 0) {
         return (
             <table className="grid gap-2">
@@ -25,5 +25,3 @@ const TrackList = ({ tracks }: { tracks: Track[] }) => {
         return <>No tracks</>;
     }
 };
-
-export default TrackList;

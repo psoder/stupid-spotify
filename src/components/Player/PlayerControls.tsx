@@ -7,7 +7,7 @@ import {
 } from "react-icons/tb";
 import { usePlaybackState, useSpotifyPlayer } from "react-spotify-web-playback-sdk";
 
-const PlayerControls = ({ disabled }: { disabled: boolean }) => {
+export const PlayerControls = ({ disabled }: { disabled: boolean }) => {
     const player = useSpotifyPlayer();
     const playbackState = usePlaybackState();
 
@@ -53,5 +53,3 @@ const PlayerControls = ({ disabled }: { disabled: boolean }) => {
         </div>
     );
 };
-
-export default PlayerControls;

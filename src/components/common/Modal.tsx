@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 
 type ModalProps = { handleClose: () => void; show: boolean; children: ReactNode };
 
-const Modal = ({ show, handleClose, children }: ModalProps) => {
+export const Modal = ({ show, handleClose, children }: ModalProps) => {
     const [shouldRender, setShouldRender] = useState(show);
 
     useEffect(() => {
@@ -35,5 +35,3 @@ const Modal = ({ show, handleClose, children }: ModalProps) => {
         </div>
     ) : null;
 };
-
-export default Modal;
