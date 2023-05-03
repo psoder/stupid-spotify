@@ -23,6 +23,13 @@ module.exports = {
                 },
                 white: {
                     bright: "#FFFFFF"
+                },
+                green: {
+                    main: "#61CC6A",
+                    deeper: "#378865",
+                    medium: "#145237",
+                    darker: "#0C2513",
+                    darkest: "#0C2513"
                 }
             }
         }
