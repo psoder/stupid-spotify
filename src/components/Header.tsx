@@ -11,9 +11,9 @@ export function Header() {
         <header className="flex items-center justify-end gap-4 bg-black-light px-10 py-3 text-lg text-gray-lightest">
             <h1 className="mr-auto text-2xl font-extrabold text-primary">Stupid Spotify</h1>
 
-            <NavbarLink title="Welcome" href="/welcome" icon={TbHome} />
+            <NavbarLink title="Welcome" href="/" icon={TbHome} />
 
-            <NavbarLink title="Search" href="/" icon={TbSearch} />
+            <NavbarLink title="Search" href="/search" icon={TbSearch} />
 
             <NavbarLink title="About" href="/about" icon={TbInfoSquareRounded} />
 
