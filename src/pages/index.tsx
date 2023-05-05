@@ -58,8 +58,8 @@ const Home: NextPage = () => {
         <main className="flex flex-col items-center p-5">
             <h2 className="text-2xl">Search track</h2>
             <form className="flex items-center" onSubmit={searchTracks}>
-                <i className=" float-left bg-white-bright">
-                    <TbSearch className=" text-gray-lightest" size={24} />
+                <i className="float-left bg-white-bright">
+                    <TbSearch className="text-gray-lightest" size={24} />
                 </i>
                 <input
                     placeholder="Search for interesting properties!"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                 />
 
                 <button
-                    className="  rounded-full bg-themegreen-depper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-themegreen-medium"
+                    className="rounded-full bg-green-deeper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-green-medium"
                     type={"submit"}
                 >
                     Search
