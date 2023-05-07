@@ -1,6 +1,6 @@
 import { Authentication } from "@/components/common/Authentication";
 import { TrackList } from "@/components/TrackList";
-import { useSpotifyClient } from "@/hooks/useSpotifyClient";
+import { useSpotifyUserClient } from "@/hooks/useSpotifyUserClient";
 import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
@@ -9,7 +9,7 @@ import type { Track } from "spotify-api.js";
 import { TbSearch } from "react-icons/tb";
 
 const Home: NextPage = () => {
-    const { spotifyClient } = useSpotifyClient();
+    const { spotifyUserClient } = useSpotifyUserClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
     const [searchKey, setSearchKey] = useState("");
@@ -27,7 +27,9 @@ const Home: NextPage = () => {
     const searchTracks = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });
+            const res = await spotifyUserClient?.client?.search(searchKey ?? "", {
+                types: ["track"]
+            });
             setSpotifyData({ ...spotifyData, tracks: res?.tracks });
         } catch (e) {
             let message = `Something went wrong. See the console for more information.`;
