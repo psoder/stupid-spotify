@@ -7,6 +7,7 @@ import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
 import { TbSearch } from "react-icons/tb";
+import { PlaylistList } from "@/components/PlaylistList";
 
 const Home: NextPage = () => {
     const { spotifyUserClient } = useSpotifyUserClient();
@@ -80,6 +81,10 @@ const Home: NextPage = () => {
             </form>
             <h2 className="text-3xl font-bold">Tracks</h2>
             <TrackList tracks={spotifyData.tracks ?? []} />
+
+            <div className="fixed left-2 top-20 h-5/6">
+                <PlaylistList />
+            </div>
         </main>
     );
 };

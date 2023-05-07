@@ -24,7 +24,7 @@ export const TrackListRow = ({ track }: { track: TrackType }) => {
     };
 
     return (
-        <tr className="track-list-grid-columns card group text-sm hover:bg-black-lightest hover:text-white-bright">
+        <tr className="track-list-grid-columns card card-hover group text-sm">
             <td className="col-span-6">
                 <TrackSummary
                     imageUrl={track.album?.images[0].url ?? ""}
