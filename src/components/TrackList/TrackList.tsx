@@ -5,8 +5,8 @@ import { TbClockPlay } from "react-icons/tb";
 export const TrackList = ({ tracks }: { tracks: Track[] }) => {
     if (tracks.length > 0) {
         return (
-            <table className="grid gap-2">
-                <thead className="track-list-grid-columns card">
+            <table>
+                <thead className="track-list-grid-columns card border-b border-b-black-lightest">
                     <td className="col-span-6">Title</td>
                     <td className="col-span-4">Album</td>
                     <td className="col-span-1 ml-auto">
@@ -14,7 +14,7 @@ export const TrackList = ({ tracks }: { tracks: Track[] }) => {
                     </td>
                     <td />
                 </thead>
-                <tbody className="grid gap-2">
+                <tbody>
                     {tracks.map((track) => (
                         <TrackListRow key={track.id} track={track} />
                     ))}
