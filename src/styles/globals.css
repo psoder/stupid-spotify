@@ -42,6 +42,14 @@
         text-decoration: none;
         @apply hover:text-white-bright hover:underline;
     }
+
+    thead {
+        @apply items-center text-lg font-bold;
+    }
+
+    tbody {
+        @apply font-normal;
+    }
 }
 
 @layer components {
