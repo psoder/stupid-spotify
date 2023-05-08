@@ -10,7 +10,7 @@ export function formatTime(ms: number, useLeadingZeros = false): string {
     }
 }
 
-export function getrandominteger(minnumber: number, maxnumber: number) {
+export function getRandomInteger(minnumber: number, maxnumber: number) {
     let no: number;
     no = Math.random() * (maxnumber - minnumber) + minnumber;
     no = Math.floor(no);
