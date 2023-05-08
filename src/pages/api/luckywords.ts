@@ -9,6 +9,6 @@ export default async function handler(req, res) {
     } catch (e) {
         console.error(e);
     }
-    const index = getrandominteger(0, wordlist.length);
+    const index = getRandomInteger(0, wordlist.length);
     res.status(200).json({ word: wordlist[index] });
 }
