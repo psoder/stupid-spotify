@@ -8,12 +8,7 @@ export const QueueContainer = () => {
 
     return (
         <>
-            <Modal
-                handleClose={() => {
-                    setShowQueue(false);
-                }}
-                show={showQueue}
-            >
+            <Modal isOpen={showQueue} onClose={() => setShowQueue(false)}>
                 <div className="absolute right-0 block h-[100vh] w-[500px] bg-black-medium shadow-md shadow-black-heavy">
                     <Queue />
                 </div>
