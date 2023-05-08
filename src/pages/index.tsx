@@ -27,10 +27,6 @@ const Home: NextPage = () => {
     const searchTracks = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const A = await fetch("http://localhost:3000/api/luckywords");
-
-            console.log(await A.json());
-
             const res = await spotifyClient?.search(searchKey ?? "", { types: ["track"] });
             setSpotifyData({ ...spotifyData, tracks: res?.tracks });
         } catch (e) {
