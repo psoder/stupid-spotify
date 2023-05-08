@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { getrandominteger } from "@/util";
+import { getRandomInteger } from "@/util";
 
 export default async function handler(req, res) {
     let wordlist: string[] = [];
