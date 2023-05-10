@@ -77,3 +77,9 @@
         @apply hover:bg-black-lightest hover:text-white-bright;
     }
 }
+
+@layer utilities {
+    .stack {
+        @apply flex flex-col;
+    }
+}
