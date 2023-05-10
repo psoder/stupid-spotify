@@ -9,7 +9,7 @@ export const QueueContainer = () => {
     return (
         <>
             <Modal isOpen={showQueue} onClose={() => setShowQueue(false)}>
-                <div className="absolute right-0 block h-[100vh] w-[500px] bg-black-medium shadow-md shadow-black-heavy">
+                <div className="absolute right-0 top-0 block h-[100vh] w-[500px] bg-black-medium shadow-md shadow-black-heavy">
                     <Queue />
                 </div>
             </Modal>

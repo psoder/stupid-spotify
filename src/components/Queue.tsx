@@ -23,7 +23,7 @@ export const Queue = () => {
     }, [playbackState?.track_window.current_track, spotifyUserClient?.client.token]);
 
     return (
-        <div className="flex h-full flex-col overflow-scroll text-gray-lightest">
+        <div className="flex h-full flex-col text-gray-lightest">
             <QueueHeader text="Now playing" />
             {currentlyPlaying ? (
                 <QueueItem track={currentlyPlaying} position={0} playing />
@@ -33,9 +33,12 @@ export const Queue = () => {
             <div className="sticky top-0 z-20 bg-black-medium">
                 <QueueHeader text="Next up" />
             </div>
-            {queue?.map((track, i) => (
-                <QueueItem key={track.id} track={track} position={i + 1} />
-            ))}
+
+            <div className="overflow-scroll">
+                {queue?.map((track, i) => (
+                    <QueueItem key={track.id} track={track} position={i + 1} />
+                ))}
+            </div>
         </div>
     );
 };
