@@ -1,6 +1,6 @@
-import { TrackListRow } from "./TrackListRow";
-import type { Track } from "spotify-api.js";
 import { TbClockPlay } from "react-icons/tb";
+import type { Track } from "spotify-api.js";
+import { TrackListRow } from "./TrackListRow";
 
 export const TrackList = ({ tracks }: { tracks: Track[] }) => {
     if (tracks.length > 0) {
@@ -15,7 +15,7 @@ export const TrackList = ({ tracks }: { tracks: Track[] }) => {
                     <td />
                 </thead>
                 <tbody>
-                    {tracks.map((track) => (
+                    {tracks?.map((track) => (
                         <TrackListRow key={track.id} track={track} />
                     ))}
                 </tbody>

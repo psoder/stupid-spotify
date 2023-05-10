@@ -1,7 +1,7 @@
 import { useSpotifyUserClient } from "@/hooks/useSpotifyUserClient";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Playlist } from "spotify-api.js";
+import { PlaylistRow } from "./PlaylistRow";
 
 export const PlaylistList = () => {
     const { spotifyUserClient } = useSpotifyUserClient();
@@ -28,22 +28,6 @@ export const PlaylistList = () => {
                     <PlaylistRow key={playlist.id} playlist={playlist} />
                 ))}
             </div>
-        </div>
-    );
-};
-
-const PlaylistRow = ({ playlist }: { playlist: Playlist }) => {
-    return (
-        <div className="card-hover flex items-center gap-2 p-1">
-            <div className="w-fill relative h-12 w-12 object-contain">
-                <Image
-                    src={playlist?.images[0]?.url ?? "/placeholder.png"}
-                    alt="album image"
-                    fill
-                    className="w-fit"
-                />
-            </div>
-            {playlist.name}
         </div>
     );
 };
