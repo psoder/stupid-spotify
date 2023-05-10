@@ -10,7 +10,6 @@ export const PlaylistList = () => {
     useEffect(() => {
         const getPlaylists = async () => {
             const playlists = await spotifyUserClient?.getPlaylists({}, true);
-            console.log(playlists);
             setPlaylists(playlists);
         };
 
