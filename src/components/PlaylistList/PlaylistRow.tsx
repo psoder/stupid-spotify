@@ -30,8 +30,8 @@ export const PlaylistRow = ({ playlist }: { playlist: Playlist }) => {
                 onClose={() => setShowPlaylistContent(false)}
                 className="items-center justify-center"
             >
-                <div className="card h-[900px] w-[1000px] overflow-scroll bg-black-heavy p-16">
-                    <div className="relative">
+                <div className="card h-[900px] w-[1000px] bg-black-heavy p-16">
+                    <div className="relative h-full">
                         <button
                             className="absolute right-0 hover:text-primary"
                             onClick={() => setShowPlaylistContent(false)}

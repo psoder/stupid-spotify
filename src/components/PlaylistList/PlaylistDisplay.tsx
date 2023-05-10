@@ -37,7 +37,7 @@ export const PlaylistDisplay = ({ playlist }: { playlist: Playlist }) => {
     }, [playlist.id, spotifyUserClient?.client.playlists]);
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex h-full flex-col gap-10">
             <div className="flex items-center gap-8">
                 <Image
                     src={playlist?.images[0]?.url ?? "/placeholder.png"}
