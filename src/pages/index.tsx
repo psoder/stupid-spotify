@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     }
 
     const searchTracks = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+        // e.preventDefault();
         try {
             const res = await spotifyUserClient?.client?.search(searchKey ?? "", {
                 types: ["track"]

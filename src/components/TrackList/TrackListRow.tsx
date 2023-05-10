@@ -5,7 +5,15 @@ import { toast } from "react-toastify";
 import type { Track as TrackType } from "spotify-api.js";
 import { TrackSummary } from "../TrackSummary";
 
-export const TrackListRow = ({ track }: { track: TrackType }) => {
+export const TrackListRow = ({
+    track,
+    selected = false,
+    setSelected
+}: {
+    track: TrackType;
+    selected?: boolean;
+    setSelected?: () => void;
+}) => {
     const { data: session } = useSession();
 
     const handleClick = async () => {
@@ -24,7 +32,11 @@ export const TrackListRow = ({ track }: { track: TrackType }) => {
     };
 
     return (
-        <tr className="track-list-grid-columns card card-hover group text-sm">
+        <tr
+            className={`track-list-grid-columns card card-hover group text-sm ${
+                selected && "bg-black-lightest text-white-bright"
+            }`}
+        >
             <td className="col-span-6">
                 <TrackSummary
                     imageUrl={track.album?.images[0].url ?? ""}
