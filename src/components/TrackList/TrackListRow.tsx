@@ -32,25 +32,25 @@ export const TrackListRow = ({
     };
 
     return (
-        <tr
+        <div
             className={`track-list-grid-columns card card-hover group text-sm ${
                 selected && "bg-black-lightest text-white-bright"
             }`}
         >
-            <td className="col-span-6">
+            <div className="col-span-6">
                 <TrackSummary
                     imageUrl={track.album?.images[0].url ?? ""}
                     name={track.name}
                     artists={track.artists.map((artist) => artist.name)}
                 />
-            </td>
-            <td className="col-span-4 truncate">{track.album?.name}</td>
-            <td className="col-span-1 text-end">{formatTime(track.duration)}</td>
-            <td className="col-span-1 min-w-[24px]">
+            </div>
+            <div className="col-span-4 truncate">{track.album?.name}</div>
+            <div className="col-span-1 text-end">{formatTime(track.duration)}</div>
+            <div className="col-span-1 min-w-[24px]">
                 <button className="hidden group-hover:block" onClick={handleClick}>
                     <TbPlaylistAdd className="icon" size={24} />
                 </button>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
