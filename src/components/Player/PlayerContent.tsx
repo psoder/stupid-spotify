@@ -1,6 +1,11 @@
 import { TrackSummary } from "@/components/TrackSummary";
 import { useEffect } from "react";
-import { useErrorState, usePlaybackState, usePlayerDevice } from "react-spotify-web-playback-sdk";
+import {
+    useErrorState,
+    usePlaybackState,
+    usePlayerDevice,
+    useWebPlaybackSDKReady
+} from "react-spotify-web-playback-sdk";
 import { toast } from "react-toastify";
 import { PlayerControls } from "./PlayerControls";
 import { PlayerProgessBar } from "./PlayerProgressBar";
@@ -11,6 +16,7 @@ export const PlayerContent = ({ accessToken }: { accessToken: string }) => {
     const playbackState = usePlaybackState(true, 500);
     const playerDevice = usePlayerDevice();
     const errorState = useErrorState();
+    const ready = useWebPlaybackSDKReady();
 
     useEffect(() => {
         if (playerDevice?.status !== "ready") {
@@ -45,27 +51,33 @@ export const PlayerContent = ({ accessToken }: { accessToken: string }) => {
         }
     }, [errorState]);
 
+    if (!ready) {
+        return <></>;
+    }
+
     return (
-        <div className="flex items-center gap-x-8 pr-4 text-sm">
-            <div className="w-[300px]">
-                <TrackSummary
-                    name={playbackState?.track_window.current_track.name}
-                    artists={playbackState?.track_window.current_track.artists.map(
-                        (artist) => artist.name
-                    )}
-                    imageUrl={playbackState?.track_window.current_track.album?.images[0].url}
-                />
-            </div>
+        <div className="card fixed bottom-2 left-0 right-0 mx-auto w-fit">
+            <div className="flex items-center gap-x-8 pr-4 text-sm">
+                <div className="w-[300px]">
+                    <TrackSummary
+                        name={playbackState?.track_window.current_track.name}
+                        artists={playbackState?.track_window.current_track.artists.map(
+                            (artist) => artist.name
+                        )}
+                        imageUrl={playbackState?.track_window.current_track.album?.images[0].url}
+                    />
+                </div>
 
-            <div className="col-span-1 flex min-w-[400px] flex-col gap-1">
-                <PlayerControls disabled={playbackState ? false : true} />
-                <PlayerProgessBar />
-            </div>
+                <div className="col-span-1 flex min-w-[400px] flex-col gap-1">
+                    <PlayerControls disabled={playbackState ? false : true} />
+                    <PlayerProgessBar />
+                </div>
 
-            <div className="w-[300px]">
-                <div className="ml-auto flex w-min gap-2">
-                    <QueueContainer />
-                    <PlayerVolumeControl />
+                <div className="w-[300px]">
+                    <div className="ml-auto flex w-min gap-2">
+                        <QueueContainer />
+                        <PlayerVolumeControl />
+                    </div>
                 </div>
             </div>
         </div>

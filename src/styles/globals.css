@@ -42,6 +42,14 @@
         text-decoration: none;
         @apply hover:text-white-bright hover:underline;
     }
+
+    thead {
+        @apply items-center text-lg font-bold;
+    }
+
+    tbody {
+        @apply font-normal;
+    }
 }
 
 @layer components {
@@ -63,5 +71,15 @@
 
     .track-list-grid-columns {
         @apply grid grid-cols-12 items-center gap-10;
+    }
+
+    .card-hover {
+        @apply hover:bg-black-lightest hover:text-white-bright;
+    }
+}
+
+@layer utilities {
+    .stack {
+        @apply flex flex-col;
     }
 }

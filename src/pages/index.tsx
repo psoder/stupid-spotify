@@ -1,8 +1,11 @@
+
 //import Image from "next/image";
 import Link from "next/link";
 
+
 const Welcome = () => {
     return (
+
         <div>
             <div className="pl-20 pt-6">
                 <div className="container mx-auto flex flex-col flex-wrap items-center px-3 md:flex-row">
@@ -27,6 +30,7 @@ const Welcome = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

@@ -1,5 +1,5 @@
-import { useSpotifyClient } from "@/hooks/useSpotifyClient";
 import { useSpotifyPlayback } from "@/hooks/useSpotifyPlayback";
+import { useSpotifyUserClient } from "@/hooks/useSpotifyUserClient";
 import { SimpleTrack } from "@/types/spotify";
 import { useSession } from "next-auth/react";
 import { ReactElement, useEffect } from "react";
@@ -8,7 +8,7 @@ import { usePlaybackState } from "react-spotify-web-playback-sdk";
 import { TrackSummary } from "./TrackSummary";
 
 export const Queue = () => {
-    const { spotifyClient } = useSpotifyClient();
+    const { spotifyUserClient } = useSpotifyUserClient();
     const playbackState = usePlaybackState();
 
     const { data: session } = useSession();
@@ -20,10 +20,10 @@ export const Queue = () => {
     useEffect(() => {
         refreshQueue();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [playbackState?.track_window.current_track, spotifyClient?.token]);
+    }, [playbackState?.track_window.current_track, spotifyUserClient?.client.token]);
 
     return (
-        <div className="flex h-full flex-col overflow-scroll text-gray-lightest">
+        <div className="flex h-full flex-col text-gray-lightest">
             <QueueHeader text="Now playing" />
             {currentlyPlaying ? (
                 <QueueItem track={currentlyPlaying} position={0} playing />
@@ -33,9 +33,12 @@ export const Queue = () => {
             <div className="sticky top-0 z-20 bg-black-medium">
                 <QueueHeader text="Next up" />
             </div>
-            {queue?.map((track, i) => (
-                <QueueItem key={track.id} track={track} position={i + 1} />
-            ))}
+
+            <div className="overflow-scroll">
+                {queue?.map((track, i) => (
+                    <QueueItem key={track.id} track={track} position={i + 1} />
+                ))}
+            </div>
         </div>
     );
 };

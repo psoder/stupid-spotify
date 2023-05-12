@@ -2,6 +2,7 @@
 import NextAuth, { AuthOptions } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import SpotifyProvider from "next-auth/providers/spotify";
+import { Scopes } from "spotify-api.js";
 
 /**
  * Takes a token, and returns a new token with updated
@@ -46,12 +47,18 @@ async function refreshAccessToken(token: JWT) {
 }
 
 const scopes = [
-    "streaming",
-    "user-read-email",
-    "user-read-private",
-    "user-read-currently-playing",
-    "user-read-playback-state",
-    "user-modify-playback-state"
+    Scopes.ReadUserEmail,
+    Scopes.ReadUserPrivateDetails,
+    Scopes.ReadCurrentlyPlaying,
+
+    Scopes.Streaming,
+    Scopes.ReadPlaybackState,
+    Scopes.WritePlaybackState,
+
+    Scopes.ReadPrivatePlaylists,
+    Scopes.ReadCollaborativePlaylists,
+    Scopes.ModifyPublicPlaylists,
+    Scopes.ModifyPrivatePlaylists
 ].join(" ");
 
 export const authOptions: AuthOptions = {

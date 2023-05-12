@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Player } from "@/components/Player";
-import { SpotifyClientProvider } from "@/context/SpotifyClientContext";
+import { SpotifyUserClientProvider } from "@/context/SpotifyUserClientContext";
 import { SpotifyPlaybackProvider } from "@/context/SpotifyPlaybackContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -29,14 +29,14 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
             <div className={`flex min-h-screen w-full flex-col bg-primary ${font.className}`}>
                 <SessionProvider session={session}>
                     <Header />
-                    <SpotifyClientProvider>
+                    <SpotifyUserClientProvider>
                         <SpotifyPlaybackProvider>
                             <div className="flex-grow">
                                 <Component {...pageProps} />
                             </div>
                             <Player />
                         </SpotifyPlaybackProvider>
-                    </SpotifyClientProvider>
+                    </SpotifyUserClientProvider>
                 </SessionProvider>
             </div>
 
