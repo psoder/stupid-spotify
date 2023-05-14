@@ -53,13 +53,13 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
             <div className={`flex min-h-screen w-full flex-col bg-primary ${font.className}`}>
                 <SessionProvider session={session}>
                     <Header />
-                    <SpotifyClientProvider>
+                    <SpotifyUserClientProvider>
                         <SpotifyPlaybackProvider>
                             <div className="flex-grow">
                                 <Component {...pageProps} />
                             </div>
                         </SpotifyPlaybackProvider>
-                    </SpotifyClientProvider>
+                    </SpotifyUserClientProvider>
                 </SessionProvider>
             </div>
 

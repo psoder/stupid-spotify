@@ -1,16 +1,13 @@
-
-//import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-
 
 const Welcome = () => {
     return (
-
         <div>
-            <div className="pl-20 pt-6">
+            <div className="pl-20 pt-2">
                 <div className="container mx-auto flex flex-col flex-wrap items-center px-3 md:flex-row">
                     <div className="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
-                        <p className="tracking-loose w-full uppercase">Today is XXX day</p>
+                        <p className="w-full">Today is XXX day</p>
                         <h1 className=" my-4 text-5xl font-bold leading-tight text-green-50">
                             Do You Feel Lucky Today?
                         </h1>
@@ -24,13 +21,12 @@ const Welcome = () => {
                         </Link>
                     </div>
 
-                    <div className="w-full py-6 pl-24 text-center md:w-3/5">
-                        <img className="z-50 w-full md:w-4/5" src="/picsonwelcome.png" />
+                    <div className="w-full py-6 pl-2 text-center md:w-3/5">
+                        <Image src="/loopgif.gif" alt={"songpicloop"} width={700} height={700} />
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 
