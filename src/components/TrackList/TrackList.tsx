@@ -25,5 +25,3 @@ export const TrackList = ({ tracks }: { tracks: Track[] }) => {
         return <>No tracks</>;
     }
 };
-
-export default TrackList;
