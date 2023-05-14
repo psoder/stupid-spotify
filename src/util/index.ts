@@ -86,3 +86,14 @@ export function msToHuman(
 export function getRandomInteger(min: number, max: number) {
     return Math.round(min + Math.random() * (max - min));
 }
+
+export function getTodaydate() {
+    const Today = new Date();
+
+    const date = Today.getDate();
+    const month = Today.getMonth() + 1;
+    const year = Today.getFullYear();
+    //console.log(date);
+    const currentdate = month + "/" + date + "/" + year;
+    return currentdate;
+}
