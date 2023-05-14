@@ -1,19 +1,26 @@
 import { Authentication } from "@/components/common/Authentication";
 import { TrackList } from "@/components/TrackList";
 import { useSpotifyUserClient } from "@/hooks/useSpotifyUserClient";
-import { NextPage } from "next";
+//import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
 import { TbSearch } from "react-icons/tb";
 import { PlaylistList } from "@/components/PlaylistList";
+import { getRandomWord } from "./api/luckywords";
 
-const Home: NextPage = () => {
+export async function getServerSideProps() {
+    const randomWord = await getRandomWord();
+    return { props: { randomWord } };
+}
+
+const Home = ({ randomWord }: { randomWord: string }) => {
     const { spotifyUserClient } = useSpotifyUserClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
-    const [searchKey, setSearchKey] = useState("");
+    //const [searchKey, setSearchKey] = useState("");
+    const [searchKey, setSearchKey] = useState(randomWord);
 
     const { status } = useSession();
 
@@ -59,27 +66,44 @@ const Home: NextPage = () => {
 
     return (
         <main className="flex flex-col items-center p-5">
-            <h2 className="text-2xl">Search track</h2>
-            <form className="flex items-center" onSubmit={searchTracks}>
+            <h2 className="my-2 text-2xl font-bold">Your Lucky Word: {randomWord}</h2>
+            <form className="my-2 flex items-center">
                 <i className="float-left bg-white-bright">
                     <TbSearch className="text-gray-lightest" size={24} />
                 </i>
+
                 <input
-                    placeholder="Search for interesting properties!"
+                    placeholder="Search by Yourself or Feel Lucky Again :D"
                     size={40}
                     type="text"
                     onChange={(e) => setSearchKey(e.target.value)}
-                    className="mr-5 border-spacing-10"
+                    className="mr-5 border-spacing-10 "
                 />
-
+            </form>
+            <form
+                className="my-2 flex items-center"
+                onSubmit={searchTracks}
+                onClick={async () => {
+                    const newRandomWord = await getRandomWord();
+                    setSearchKey(newRandomWord);
+                    console.log(newRandomWord);
+                    searchTracks;
+                }}
+            >
                 <button
-                    className="rounded-full bg-green-deeper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-green-medium"
+                    className="rounded-full bg-gradient-to-r from-green-darkest to-green-deeper p-8 px-4 py-0.5 font-bold text-green-50 shadow-lg hover:scale-105 hover:underline focus:outline-none"
                     type={"submit"}
                 >
-                    Search
+                    Search Songs
+                </button>
+                <button
+                    className="ml-10 rounded-full bg-gradient-to-r from-green-darkest to-green-deeper p-8 px-4 py-0.5 font-bold text-green-50 shadow-lg hover:scale-105 hover:underline focus:outline-none"
+                    type={"button"}
+                >
+                    Lucky Again
                 </button>
             </form>
-            <h2 className="text-3xl font-bold">Tracks</h2>
+            <h2 className="text-xl">Search Results:</h2>
             <TrackList tracks={spotifyData.tracks ?? []} />
 
             <div className="fixed left-2 top-20 h-5/6">
