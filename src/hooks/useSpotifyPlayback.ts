@@ -48,7 +48,7 @@ export const useSpotifyPlayback = (token: string) => {
         return queue;
     }
 
-    async function add(uri: string) {
+    async function addToQueue(uri: string) {
         if (!token) {
             return;
         }
@@ -61,10 +61,8 @@ export const useSpotifyPlayback = (token: string) => {
             }
         });
 
-        refreshQueue();
-
         return res.ok;
     }
 
-    return { queue: queue.items, refreshQueue, add, currentlyPlaying: playing.track };
+    return { queue: queue.items, refreshQueue, addToQueue, currentlyPlaying: playing.track };
 };
