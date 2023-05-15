@@ -58,6 +58,10 @@
     li {
         @apply card-hover cursor-pointer p-2;
     }
+
+    hr {
+        @apply h-[2px] border-0 bg-gray-medium;
+    }
 }
 
 @layer components {
@@ -83,6 +87,10 @@
 
     .card-hover {
         @apply hover:bg-black-lightest hover:text-white-bright;
+    }
+
+    .context-menu-item {
+        @apply p-2;
     }
 }
 
