@@ -20,13 +20,16 @@ export async function getRandomWord(): Promise<string> {
 }
 */
 
-// Using Internet API
-export async function getRandomWord(): Promise<string> {
+// change to Using Internet API
+export async function getRandomWord() {
     try {
         const response = await fetch("https://random-word-api.herokuapp.com/word");
+        if (!response.ok) {
+            throw new Error("Failed to fetch random word");
+        }
         const [word] = await response.json();
-        //console.log("aaa");
-        console.log(word);
+
+        //console.log(word);
         return word;
     } catch (e) {
         console.error(e);

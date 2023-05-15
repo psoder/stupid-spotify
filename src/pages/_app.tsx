@@ -21,7 +21,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
     return (
         <>
             <Head>
-                <title>Stupid Spotify</title>
+                <title>Lucky Spotify</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/doughnut-cat.png" />
             </Head>
