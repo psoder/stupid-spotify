@@ -1,19 +1,47 @@
 import { Authentication } from "@/components/common/Authentication";
 import { TrackList } from "@/components/TrackList";
 import { useSpotifyUserClient } from "@/hooks/useSpotifyUserClient";
-import { NextPage } from "next";
+//import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import type { Track } from "spotify-api.js";
 import { TbSearch } from "react-icons/tb";
 import { PlaylistList } from "@/components/PlaylistList";
+import { getRandomWord } from "./api/luckywords";
 
-const Home: NextPage = () => {
+const Home = () => {
+    //randomword related
+
+    const [wordpresent, setWordPresent] = useState("DH");
+    const [manualsearch, setmanualsearch] = useState("");
+
+    const handleLuckyClick = async () => {
+        const word = await getRandomWord();
+
+        setSearchKey(word);
+
+        //setWordPresent(word + "+" + randomWord + "+" + searchKey);
+        if (searchKey == manualsearch) {
+            setWordPresent("");
+        } else setWordPresent(searchKey);
+    };
+
+    const handleManualClick = async () => {
+        setSearchKey(manualsearch);
+    };
+
+    const handleinput = (e) => {
+        setSearchKey(e.target.value);
+        setmanualsearch(e.target.value);
+    };
+
+    //spotify related
     const { spotifyUserClient } = useSpotifyUserClient();
 
     const [spotifyData, setSpotifyData] = useState<{ tracks?: Track[] }>({});
-    const [searchKey, setSearchKey] = useState("");
+
+    const [searchKey, setSearchKey] = useState("DH");
 
     const { status } = useSession();
 
@@ -59,27 +87,45 @@ const Home: NextPage = () => {
 
     return (
         <main className="flex flex-col items-center p-5">
-            <h2 className="text-2xl">Search track</h2>
-            <form className="flex items-center" onSubmit={searchTracks}>
+            {searchKey !== manualsearch ? (
+                <h2 className="my-2 text-2xl font-bold">Your Lucky Word is: {wordpresent}</h2>
+            ) : (
+                <h2 className="my-2 text-2xl font-bold">
+                    You are Manually Searching: {manualsearch}
+                </h2>
+            )}
+
+            <div className="my-2 flex items-center">
                 <i className="float-left bg-white-bright">
                     <TbSearch className="text-gray-lightest" size={24} />
                 </i>
+
                 <input
-                    placeholder="Search for interesting properties!"
+                    placeholder="Search by Yourself or Feel Lucky Again :D"
                     size={40}
                     type="text"
-                    onChange={(e) => setSearchKey(e.target.value)}
-                    className="mr-5 border-spacing-10"
+                    onChange={handleinput}
+                    className="mr-5 border-spacing-10 "
                 />
-
+            </div>
+            <form className="my-2 flex items-center" onSubmit={searchTracks}>
                 <button
-                    className="rounded-full bg-green-deeper p-8 px-4 py-0.5 font-bold text-white-bright hover:bg-green-medium"
+                    onClick={handleManualClick}
+                    className="rounded-full bg-gradient-to-r from-green-darkest to-green-deeper p-8 px-4 py-0.5 font-bold text-green-50 shadow-lg hover:scale-105 hover:underline focus:outline-none"
                     type={"submit"}
                 >
-                    Search
+                    Search Songs
+                </button>
+                <button
+                    onClick={handleLuckyClick}
+                    className="ml-10 rounded-full bg-gradient-to-r from-green-darkest to-green-deeper p-8 px-4 py-0.5 font-bold text-green-50 shadow-lg hover:scale-105 hover:underline focus:outline-none"
+                    type={"submit"}
+                >
+                    Lucky Button
                 </button>
             </form>
-            <h2 className="text-3xl font-bold">Tracks</h2>
+
+            <h2 className="text-xl">Search Results:</h2>
             <div className="md:w-1/2">
                 <TrackList tracks={spotifyData.tracks ?? []} />
             </div>

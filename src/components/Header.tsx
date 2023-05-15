@@ -9,7 +9,9 @@ import { TbHome, TbInfoSquareRounded, TbSearch } from "react-icons/tb";
 export function Header() {
     return (
         <header className="flex items-center justify-end gap-4 bg-black-light px-10 py-3 text-lg text-gray-lightest">
-            <h1 className="mr-auto text-2xl font-extrabold text-primary">Stupid Spotify</h1>
+            <Link href="/" className="mr-auto text-2xl font-extrabold text-primary">
+                <h1>Lucky Spotify</h1>
+            </Link>
 
             <NavbarLink title="Welcome" href="/" icon={TbHome} />
 
