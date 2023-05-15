@@ -1,15 +1,15 @@
-import { getTodaydate } from "@/util";
 import Image from "next/image";
 import Link from "next/link";
 
 const Welcome = () => {
-    const Todaydate = getTodaydate();
+    const currentDate = new Date().toLocaleDateString();
+
     return (
         <div>
             <div className="pl-20 pt-2">
                 <div className="container mx-auto flex flex-col flex-wrap items-center px-3 md:flex-row">
                     <div className="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
-                        <p className="w-full">Today is {Todaydate}</p>
+                        <p className="w-full">Today is the {currentDate}</p>
 
                         <h1 className=" my-4 text-5xl font-bold leading-tight text-green-50">
                             Do You Feel Lucky Today?
