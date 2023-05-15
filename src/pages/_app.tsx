@@ -9,12 +9,15 @@ import { Roboto_Flex } from "next/font/google";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 const font = Roboto_Flex({
     subsets: ["latin"]
 });
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+    const router = useRouter();
+
     return (
         <>
             <Head>
@@ -31,7 +34,8 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
                             <div className="flex-grow">
                                 <Component {...pageProps} />
                             </div>
-                            <Player />
+
+                            {router.pathname == "/search" ? <Player /> : null}
                         </SpotifyPlaybackProvider>
                     </SpotifyUserClientProvider>
                 </SessionProvider>
