@@ -20,7 +20,7 @@ export const PlaylistList = () => {
         <div className="card flex h-full flex-col px-0">
             <div className="mb-3 flex flex-col gap-1 px-2">
                 <h1 className="text-lg font-bold">Your playlists</h1>
-                <hr className="h-[2px] border-0 bg-gray-medium" />
+                <hr />
             </div>
             <div className="flex flex-col overflow-scroll">
                 {playlists?.map((playlist) => (

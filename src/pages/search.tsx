@@ -126,9 +126,11 @@ const Home = () => {
             </form>
 
             <h2 className="text-xl">Search Results:</h2>
-            <TrackList tracks={spotifyData.tracks ?? []} />
+            <div className="md:w-1/2">
+                <TrackList tracks={spotifyData.tracks ?? []} />
+            </div>
 
-            <div className="fixed left-2 top-20 h-5/6">
+            <div className="fixed left-2 top-20 h-5/6 md:w-1/5">
                 <PlaylistList />
             </div>
         </main>
