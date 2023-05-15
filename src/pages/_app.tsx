@@ -18,7 +18,7 @@ const font = Roboto_Flex({
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const router = useRouter();
 
-    return router.pathname == "/search" ? (
+    return (
         <>
             <Head>
                 <title>Stupid Spotify</title>
@@ -34,30 +34,8 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
                             <div className="flex-grow">
                                 <Component {...pageProps} />
                             </div>
-                            <Player />
-                        </SpotifyPlaybackProvider>
-                    </SpotifyUserClientProvider>
-                </SessionProvider>
-            </div>
 
-            <ToastContainer position="bottom-right" autoClose={3000} theme="dark" />
-        </>
-    ) : (
-        <>
-            <Head>
-                <title>Stupid Spotify</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/doughnut-cat.png" />
-            </Head>
-
-            <div className={`flex min-h-screen w-full flex-col bg-primary ${font.className}`}>
-                <SessionProvider session={session}>
-                    <Header />
-                    <SpotifyUserClientProvider>
-                        <SpotifyPlaybackProvider>
-                            <div className="flex-grow">
-                                <Component {...pageProps} />
-                            </div>
+                            {router.pathname == "/search" ? <Player /> : null}
                         </SpotifyPlaybackProvider>
                     </SpotifyUserClientProvider>
                 </SessionProvider>
