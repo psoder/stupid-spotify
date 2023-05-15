@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Welcome = () => {
-    const currentDate = new Date().toLocaleDateString();
+    const currentDate = new Date().toLocaleDateString("se-SE");
 
     return (
         <div>
