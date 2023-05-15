@@ -17,7 +17,7 @@ const Welcome = () => {
                         <p className="mb-20 text-2xl leading-normal">Lucky Vibes, Lucky Lives!</p>
                         <Link
                             href={"/search"}
-                            className="mx-auto my-6 transform animate-bounce rounded-full bg-gradient-to-r from-green-darkest to-green-deeper px-8 py-4 font-bold text-gray-800 text-green-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:underline focus:outline-none lg:mx-0"
+                            className="mx-auto my-6 transform animate-bounce rounded-full bg-gradient-to-r from-green-darkest to-green-deeper px-8 py-4 font-bold text-green-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:underline focus:outline-none lg:mx-0"
                         >
                             Discover Your Lucky Songs!
                         </Link>
