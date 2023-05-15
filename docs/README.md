@@ -1,12 +1,14 @@
-# Stupid Spotify
+# Stupid(Lucky) Spotify
 
-The idea behind Stupid Spotify is to create an interface that generats playlists
+The initial idea behind Stupid Spotify is to create an interface that generats playlists
 based on stupid criteria, for instance, creating a playlist based on which date
 the song was released, the birthdate of an artist, or any other interesting aspect
-of the metadata that doesn’t have any correlation to song coherence. It should be
-a way of discovering new music in ways that are not supposed to be. We will implement
-different filters to enable the user’s journey to new music, and finally, save the
-song you found to your own Spotify playlist.
+of the metadata that doesn’t have any correlation to song coherence.
+
+But while we developed, we found it's impossible for us to do this function cause Spotify doesn't have these search property on it's API endpoint. Also, it only gives 20 results per serching.
+
+At last, we decided to do another function: searching by Lucky Word (get from random word API). It should also be
+a way of discovering new music in ways that are not supposed to be.
 
 This is the final project for the course [DH2642 Interaction Programming and the Dynamic Web](https://www.kth.se/student/kurser/kurs/DH2642?l=en)
 given at KTH during the spring of 2023.
@@ -139,23 +141,3 @@ Some other interesting files and folders are:
 -   `next.config.js`: NextJS configuration
 -   `tsconfig.json`: TypeScript configuration
 -   `tailwind.config.js`, `postcss.config.js`: Tailwind configuration
-
-## Project Status
-
-### Current status
-
-This far we've implemented,
-
--   sign in with Spotify account
--   proof of concept Spotify API querying
--   music playback
-
-We've also designed a mockup which can be found [here](https://www.figma.com/file/anULqp2wd40BEJHPuRkjJq/stupid-spotify?node-id=0%3A1&t=4sbfSEoTeGaGTbdX-1).
-
-### Future plans
-
-In the future we plan to
-
--   add more search and filter options
--   add functionality to save songs to your own Spotify playlist
--   improve the layout and looking with color and style
