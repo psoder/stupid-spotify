@@ -31,7 +31,7 @@ const Home = () => {
         setSearchKey(manualsearch);
     };
 
-    const handleinput = (e) => {
+    const handleinput = (e: any) => {
         setSearchKey(e.target.value);
         setmanualsearch(e.target.value);
     };
